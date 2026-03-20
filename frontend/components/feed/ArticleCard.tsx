@@ -1,0 +1,137 @@
+import Link from 'next/link'
+import { MapPin, Clock, Plane, Building, Map, FileText, Shield, Cloud } from 'lucide-react'
+import type { ArticleListItem } from '@/types'
+import { StatusBadge } from '@/components/ui/StatusBadge'
+import { SeverityBadge } from '@/components/ui/SeverityBadge'
+import { cn, formatTimeAgo } from '@/lib/utils'
+
+const categoryIcons: Record<string, React.ElementType> = {
+  transport: Plane,
+  'entry-rules': FileText,
+  safety: Shield,
+  attractions: Map,
+  pricing: Building,
+  disruptions: Cloud,
+}
+
+interface ArticleCardProps {
+  article: ArticleListItem
+  variant?: 'default' | 'compact' | 'featured'
+  className?: string
+}
+
+function getPrimaryLocationName(locations: { name: string; location_type: string }[]): string {
+  if (!locations || locations.length === 0) return 'Unknown'
+  // Return city if available, otherwise country
+  const city = locations.find(l => l.location_type === 'city')
+  const country = locations.find(l => l.location_type === 'country')
+  if (city && country) return `${city.name}, ${country.name}`
+  return locations[0].name
+}
+
+export function ArticleCard({ article, variant = 'default', className }: ArticleCardProps) {
+  const CategoryIcon = categoryIcons[article.category.slug] || Map
+  const locationName = getPrimaryLocationName(article.locations)
+
+  if (variant === 'compact') {
+    return (
+      <Link
+        href={`/article/${article.slug}`}
+        className={cn(
+          'block p-4 bg-card rounded-lg border border-border hover:border-primary/50 transition-colors',
+          className
+        )}
+      >
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 mb-1.5">
+              <CategoryIcon className="h-4 w-4 text-muted-foreground shrink-0" />
+              <span className="text-xs text-muted-foreground capitalize">{article.category.name}</span>
+            </div>
+            <h3 className="font-medium text-sm line-clamp-2 leading-snug">{article.headline}</h3>
+          </div>
+          <div className="flex flex-col items-end gap-1 shrink-0">
+            <SeverityBadge severity={article.severity} />
+          </div>
+        </div>
+        <div className="flex items-center gap-3 mt-3 text-xs text-muted-foreground">
+          <span className="flex items-center gap-1">
+            <MapPin className="h-3 w-3" />
+            {locationName}
+          </span>
+          <span className="flex items-center gap-1">
+            <Clock className="h-3 w-3" />
+            {article.published_at ? formatTimeAgo(article.published_at) : 'Draft'}
+          </span>
+        </div>
+      </Link>
+    )
+  }
+
+  if (variant === 'featured') {
+    return (
+      <Link
+        href={`/article/${article.slug}`}
+        className={cn(
+          'block p-6 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl border border-primary/20 hover:border-primary/40 transition-all',
+          className
+        )}
+      >
+        <div className="flex items-center gap-2 mb-3">
+          <CategoryIcon className="h-5 w-5 text-primary" />
+          <span className="text-sm font-medium text-primary capitalize">{article.category.name}</span>
+          <span className="text-muted-foreground">•</span>
+          <span className="text-xs text-muted-foreground capitalize">{locationName}</span>
+        </div>
+        <h2 className="text-xl font-bold mb-2 leading-tight">{article.headline}</h2>
+        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{article.summary}</p>
+        <div className="flex items-center gap-3">
+          <SeverityBadge severity={article.severity} />
+          <StatusBadge status={article.status} />
+        </div>
+      </Link>
+    )
+  }
+
+  // Default variant
+  return (
+    <Link
+      href={`/article/${article.slug}`}
+      className={cn(
+        'block p-5 bg-card rounded-lg border border-border hover:border-primary/50 hover:shadow-sm transition-all',
+        className
+      )}
+    >
+      <div className="flex items-start justify-between gap-4 mb-3">
+        <div className="flex items-center gap-2">
+          <div className="p-2 rounded-lg bg-muted">
+            <CategoryIcon className="h-4 w-4 text-muted-foreground" />
+          </div>
+          <div>
+            <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide capitalize">
+              {article.category.name}
+            </span>
+          </div>
+        </div>
+        <div className="flex flex-col items-end gap-1">
+          <SeverityBadge severity={article.severity} />
+          <StatusBadge status={article.status} />
+        </div>
+      </div>
+
+      <h3 className="font-semibold text-base mb-2 leading-snug line-clamp-2">{article.headline}</h3>
+      <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{article.summary}</p>
+
+      <div className="flex items-center gap-4 text-xs text-muted-foreground">
+        <span className="flex items-center gap-1.5">
+          <MapPin className="h-3.5 w-3.5" />
+          <span className="capitalize">{locationName}</span>
+        </span>
+        <span className="flex items-center gap-1.5">
+          <Clock className="h-3.5 w-3.5" />
+          {article.published_at ? formatTimeAgo(article.published_at) : 'Draft'}
+        </span>
+      </div>
+    </Link>
+  )
+}

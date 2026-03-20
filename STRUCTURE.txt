@@ -1,0 +1,76 @@
+gti-articles/news-platform/
+├── README.md
+├── backend-spec.md
+├── db/
+│   ├── migrations/
+│   │   └── 001_initial_schema.sql
+│   └── seeds/
+│       └── seed_data.sql
+├── .env.example
+├── .env.local
+├── ia-spec.md
+├── next.config.ts
+├── package.json
+├── postcss.config.js
+├── product-spec.md
+├── scripts/
+│   ├── migrate.js
+│   ├── seed.js
+│   └── setup.js
+├── src/
+│   ├── __tests__/
+│   │   ├── data.test.ts
+│   │   ├── db.test.ts
+│   │   └── ui.test.ts
+│   ├── app/
+│   │   ├── api/
+│   │   │   ├── articles/
+│   │   │   │   ├── [id]/route.ts
+│   │   │   │   ├── [slug]/route.ts
+│   │   │   │   ├── create/route.ts
+│   │   │   │   └── route.ts
+│   │   │   ├── categories/route.ts
+│   │   │   ├── filters/route.ts
+│   │   │   └── locations/route.ts
+│   │   ├── article/[slug]/page.tsx
+│   │   ├── category/[category]/page.tsx
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── location/[location]/page.tsx
+│   │   └── page.tsx
+│   ├── components/
+│   │   ├── feed/
+│   │   │   ├── ArticleCard.tsx
+│   │   │   ├── ArticleSection.tsx
+│   │   │   ├── FeedList.tsx
+│   │   │   └── index.ts
+│   │   ├── filters/
+│   │   │   ├── CategoryFilter.tsx
+│   │   │   ├── FilterBar.tsx
+│   │   │   ├── index.ts
+│   │   │   ├── LocationFilter.tsx
+│   │   │   └── SortSelect.tsx
+│   │   ├── layout/
+│   │   │   ├── Footer.tsx
+│   │   │   ├── Header.tsx
+│   │   │   └── index.ts
+│   │   └── ui/
+│   │   ├── Button.tsx
+│   │   ├── ImpactBadge.tsx
+│   │   ├── index.ts
+│   │   ├── SeverityBadge.tsx
+│   │   └── StatusBadge.tsx
+│   ├── hooks/
+│   │   ├── index.ts
+│   │   ├── useArticles.ts
+│   │   └── useFilters.ts
+│   ├── lib/
+│   │   ├── articleService.ts
+│   │   ├── data.ts
+│   │   ├── db.ts
+│   │   └── utils.ts
+│   ├── types/
+│   │   └── index.ts
+│   └── validate.js
+├── tailwind.config.ts
+└── tsconfig.json
