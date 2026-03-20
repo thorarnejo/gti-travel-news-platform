@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, MapPin, Clock, ExternalLink } from 'lucide-react'
+import { ArrowLeft, MapPin, Clock } from 'lucide-react'
 import { getArticleBySlug } from '@/lib/data'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import { SeverityBadge } from '@/components/ui/SeverityBadge'
@@ -92,18 +92,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Summary Card */}
-            <div className="bg-card border border-border rounded-lg p-5">
-              <h3 className="font-semibold mb-3">Quick Summary</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {article.summary}
-              </p>
-            </div>
-
-            {/* Affected Areas */}
             {article.locations && article.locations.length > 0 && (
               <div className="bg-card border border-border rounded-lg p-5">
-                <h3 className="font-semibold mb-3">Affected Areas</h3>
+                <h3 className="font-semibold mb-3">Affected areas</h3>
                 <div className="flex flex-wrap gap-2">
                   {article.locations.map((location) => (
                     <Link
@@ -119,30 +110,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </div>
             )}
 
-            {/* Sources */}
-            {article.sources && article.sources.length > 0 && (
-              <div className="bg-card border border-border rounded-lg p-5">
-                <h3 className="font-semibold mb-3">Sources</h3>
-                <ul className="space-y-2">
-                  {article.sources.map((source) => (
-                    <li key={source.id}>
-                      <a
-                        href={source.website_url || '#'}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800"
-                      >
-                        {source.name}
-                        <ExternalLink className="h-3 w-3" />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {/* Last Updated */}
-            <div className="bg-muted rounded-lg p-4 text-sm text-muted-foreground">
+            <div className="bg-muted rounded-lg p-4 text-sm text-muted-foreground border border-border">
               <p>
                 <strong>Published:</strong> {publishedDate || 'Draft'}
               </p>

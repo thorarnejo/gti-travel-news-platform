@@ -43,7 +43,7 @@ export function FeedList({ articles, loading, error, className }: FeedListProps)
         </div>
         <h3 className="font-semibold text-lg mb-2">No alerts found</h3>
         <p className="text-muted-foreground text-sm max-w-sm">
-          Try adjusting your filters or check back later for the latest travel news.
+          Try adjusting filters or check back for new travel alerts.
         </p>
       </div>
     )

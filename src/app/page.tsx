@@ -58,10 +58,10 @@ export default async function HomePage({
             </div>
 
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-3">
-              Global Travels Info
+              GTI Travel Intelligence
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl">
-              Real-time alerts on flight cancellations, entry rule changes, and safety warnings.
+              What changed. Who is affected. What to do now.
             </p>
           </div>
         </div>
