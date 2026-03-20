@@ -49,7 +49,7 @@ export function FilterBar({ className, categories, locations }: FilterBarProps) 
       <div className="bg-card border border-border rounded-lg p-4">
         <div className="flex flex-col gap-4">
           {/* Top Row - Main Filters */}
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2 md:gap-3">
             <CategoryFilter
               value={searchParams.get('category') || ''}
               onChange={(val) => updateFilter('category', val || null)}

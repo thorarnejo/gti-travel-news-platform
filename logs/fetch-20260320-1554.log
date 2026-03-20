@@ -1,0 +1,75 @@
+
+> gti-news-platform@1.0.0 automation:fetch
+> node automation/jobs/fetch-sources.js
+
+🚀 Starting source fetch job...
+⏰ 2026-03-20T14:54:45.217Z
+📡 Found 10 active sources
+📡 Testing 10 RSS sources
+  Fetching EUROCONTROL News...
+    ✅ 10 items
+  Fetching The Guardian Travel...
+    ✅ 10 items
+  Fetching CNN Travel...
+    ✅ 10 items
+  Fetching Simple Flying...
+    ✅ 10 items
+  Fetching Airport Technology...
+    ✅ 10 items
+  Fetching Railway Technology...
+    ✅ 10 items
+  Fetching Skift...
+    ✅ 10 items
+  Fetching Aviation Week...
+    ✅ 10 items
+  Fetching AFAR...
+    ⚠️  HTTP 404
+  Fetching One Mile at a Time...
+    ✅ 10 items
+
+📊 Total fetched: 90
+
+🔍 Filtered: 39 relevant, 51 removed
+Filter breakdown: { 'Non-actionable content type': 28, 'No travel impact keywords': 23 }
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+    ⏭️  Duplicate skipped: Same URL in last 7 days
+
+✅ Inserted 0 items, 39 duplicates skipped
+✅ Fetch job complete

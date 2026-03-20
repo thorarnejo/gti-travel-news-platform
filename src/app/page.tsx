@@ -57,8 +57,8 @@ export default async function HomePage({
               <span className="text-sm text-muted-foreground">Updated moments ago</span>
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
-              Global Travel Disruptions
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-3">
+              Global Travels Info
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl">
               Real-time alerts on flight cancellations, entry rule changes, and safety warnings.

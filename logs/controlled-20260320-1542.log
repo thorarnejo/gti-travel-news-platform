@@ -1,0 +1,10 @@
+
+> gti-news-platform@1.0.0 automation:process:controlled
+> node automation/jobs/process-queue-controlled.js
+
+[2026-03-20T14:42:44.189Z] [INFO] 🚀 Starting CONTROLLED MODE queue processing
+[2026-03-20T14:42:44.190Z] [INFO] Dry run: DISABLED
+[2026-03-20T14:42:44.190Z] [INFO] Auto-publish threshold: 0.9
+[2026-03-20T14:42:44.190Z] [INFO] Review queue threshold: 0.75
+[2026-03-20T14:42:45.067Z] [INFO] 📋 Processing 0 pending items
+[2026-03-20T14:42:45.068Z] [INFO] ℹ️ No pending items to process
