@@ -30,6 +30,7 @@ const severityLabels = {
 interface SeverityBadgeProps extends VariantProps<typeof severityVariants> {
   severity?: 'low' | 'medium' | 'high' | 'critical'
   showDot?: boolean
+  className?: string
 }
 
 export function SeverityBadge({ severity, className, showDot = true }: SeverityBadgeProps) {

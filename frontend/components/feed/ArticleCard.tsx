@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { MapPin, Clock, Plane, Building, Map, FileText, Shield, Cloud } from 'lucide-react'
 import type { ArticleListItem } from '@/types'
-import { StatusBadge } from '@/components/ui/StatusBadge'
+import { StatusBadge, ArticleStatusBadge } from '@/components/ui/StatusBadge'
 import { SeverityBadge } from '@/components/ui/SeverityBadge'
 import { cn, formatTimeAgo } from '@/lib/utils'
 
@@ -46,7 +46,12 @@ export function ArticleCard({ article, variant = 'default', className }: Article
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1.5">
               <CategoryIcon className="h-4 w-4 text-muted-foreground shrink-0" />
-              <span className="text-xs text-muted-foreground capitalize">{article.category.name}</span>
+              <Link href={`/category/${article.category.slug}`} className="text-xs text-muted-foreground capitalize hover:text-primary">
+                {article.category.name}
+              </Link>
+              {article.articleStatus && (
+                <ArticleStatusBadge articleStatus={article.articleStatus} />
+              )}
             </div>
             <h3 className="font-medium text-sm line-clamp-2 leading-snug">{article.headline}</h3>
           </div>
@@ -57,7 +62,9 @@ export function ArticleCard({ article, variant = 'default', className }: Article
         <div className="flex items-center gap-3 mt-3 text-xs text-muted-foreground">
           <span className="flex items-center gap-1">
             <MapPin className="h-3 w-3" />
-            {locationName}
+            <Link href={`/location/${locationName.toLowerCase().replace(/,?\s*[\w\s]+$/, '').trim()}`} className="hover:text-primary capitalize">
+              {locationName}
+            </Link>
           </span>
           <span className="flex items-center gap-1">
             <Clock className="h-3 w-3" />
@@ -79,9 +86,19 @@ export function ArticleCard({ article, variant = 'default', className }: Article
       >
         <div className="flex items-center gap-2 mb-3">
           <CategoryIcon className="h-5 w-5 text-primary" />
-          <span className="text-sm font-medium text-primary capitalize">{article.category.name}</span>
+          <Link href={`/category/${article.category.slug}`} className="text-sm font-medium text-primary hover:underline capitalize">
+            {article.category.name}
+          </Link>
           <span className="text-muted-foreground">•</span>
-          <span className="text-xs text-muted-foreground capitalize">{locationName}</span>
+          <Link href={`/location/${locationName.toLowerCase().replace(/,?\s*[\w\s]+$/, '').trim()}`} className="text-xs text-muted-foreground hover:text-primary capitalize">
+            {locationName}
+          </Link>
+          {article.articleStatus && (
+            <>
+              <span className="text-muted-foreground">•</span>
+              <ArticleStatusBadge articleStatus={article.articleStatus} />
+            </>
+          )}
         </div>
         <h2 className="text-xl font-bold mb-2 leading-tight">{article.headline}</h2>
         <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{article.summary}</p>

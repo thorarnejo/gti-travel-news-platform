@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils'
 import { cva, type VariantProps } from 'class-variance-authority'
-import { AlertTriangle, AlertCircle, Info, XCircle, TrendingUp } from 'lucide-react'
+import { AlertTriangle, AlertCircle, Info, XCircle, TrendingUp, CheckCircle, Clock, Activity } from 'lucide-react'
 
 const statusVariants = cva(
   'inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium border',
@@ -32,6 +32,7 @@ const statusConfig = {
 
 interface StatusBadgeProps extends VariantProps<typeof statusVariants> {
   status?: 'new' | 'update' | 'warning' | 'disruption' | 'price-change'
+  className?: string
 }
 
 export function StatusBadge({ status, className }: StatusBadgeProps) {
@@ -47,4 +48,45 @@ export function StatusBadge({ status, className }: StatusBadgeProps) {
   )
 }
 
-export { statusVariants }
+// Article Status Badge: Active / Ongoing / Resolved (for article cards and pages)
+const articleStatusVariants = cva(
+  'inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium border',
+  {
+    variants: {
+      articleStatus: {
+        'active': 'bg-red-100 text-red-800 border-red-200',
+        'ongoing': 'bg-amber-100 text-amber-800 border-amber-200',
+        'resolved': 'bg-emerald-100 text-emerald-800 border-emerald-200',
+      },
+    },
+    defaultVariants: {
+      articleStatus: 'active',
+    },
+  }
+)
+
+const articleStatusConfig = {
+  active: { icon: Activity, label: 'Active' },
+  ongoing: { icon: Clock, label: 'Ongoing' },
+  resolved: { icon: CheckCircle, label: 'Resolved' },
+}
+
+interface ArticleStatusBadgeProps extends VariantProps<typeof articleStatusVariants> {
+  articleStatus?: 'active' | 'ongoing' | 'resolved'
+  className?: string
+}
+
+export function ArticleStatusBadge({ articleStatus, className }: ArticleStatusBadgeProps) {
+  if (!articleStatus) return null
+  const config = articleStatusConfig[articleStatus]
+  const Icon = config.icon
+
+  return (
+    <span className={cn(articleStatusVariants({ articleStatus }), className)}>
+      <Icon className="h-3 w-3" />
+      {config.label}
+    </span>
+  )
+}
+
+export { statusVariants, articleStatusVariants }

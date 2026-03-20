@@ -2,6 +2,7 @@
 
 import { ArticleCard } from './ArticleCard'
 import type { Article } from '@/types'
+import { articleToListItem } from '@/types'
 import { Plane } from 'lucide-react'
 
 interface FeedListProps {
@@ -34,7 +35,7 @@ export function FeedList({ articles, variant = 'default', className }: FeedListP
       </div>
       <div className="grid gap-4">
         {articles.map((article) => (
-          <ArticleCard key={article.id} article={article} variant={variant} />
+          <ArticleCard key={article.id} article={articleToListItem(article)} variant={variant} />
         ))}
       </div>
     </div>

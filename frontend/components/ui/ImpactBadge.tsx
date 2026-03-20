@@ -28,6 +28,7 @@ const impactLabels = {
 interface ImpactBadgeProps extends VariantProps<typeof impactVariants> {
   variant?: 'regional' | 'localized' | 'widespread'
   regions?: string[]
+  className?: string
 }
 
 export function ImpactBadge({ variant = 'regional', regions = [], className }: ImpactBadgeProps) {

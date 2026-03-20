@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, MapPin, Clock, ExternalLink } from 'lucide-react'
+import { ArrowLeft, MapPin, Clock, ExternalLink, CheckCircle } from 'lucide-react'
 import { getArticleBySlug } from '@/lib/data'
-import { StatusBadge } from '@/components/ui/StatusBadge'
+import { StatusBadge, ArticleStatusBadge } from '@/components/ui/StatusBadge'
 import { SeverityBadge } from '@/components/ui/SeverityBadge'
 import { ArticleSection } from '@/components/feed/ArticleSection'
 import { formatDate } from '@/lib/utils'
@@ -16,8 +16,9 @@ export async function generateMetadata({ params }: ArticlePageProps) {
   if (!article) return { title: 'Article Not Found' }
   
   return {
-    title: `${article.title} | GTI News`,
+    title: article.title,
     description: article.summary,
+    keywords: `${article.location.city || article.location.country}, ${article.category}, travel news, travel advisory`,
   }
 }
 
@@ -29,6 +30,9 @@ export default function ArticlePage({ params }: ArticlePageProps) {
   }
 
   const categoryLabel = article.category.charAt(0).toUpperCase() + article.category.slice(1)
+  const locationLabel = article.location.city 
+    ? `${article.location.city}, ${article.location.country}`
+    : article.location.country
 
   return (
     <div className="min-h-screen">
@@ -46,11 +50,17 @@ export default function ArticlePage({ params }: ArticlePageProps) {
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
             <div>
               <div className="flex flex-wrap items-center gap-3 mb-4">
-                <span className="px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full capitalize">
+                <Link 
+                  href={`/category/${article.category}`}
+                  className="px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full capitalize hover:bg-primary/20 transition-colors"
+                >
                   {categoryLabel}
-                </span>
+                </Link>
                 <SeverityBadge severity={article.severity} />
                 <StatusBadge status={article.status} />
+                {article.articleStatus && (
+                  <ArticleStatusBadge articleStatus={article.articleStatus} />
+                )}
               </div>
 
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-4">
@@ -58,12 +68,13 @@ export default function ArticlePage({ params }: ArticlePageProps) {
               </h1>
 
               <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                <span className="flex items-center gap-1.5">
+                <Link 
+                  href={`/location/${(article.location.city || article.location.country).toLowerCase().replace(/\s+/g, '-')}`}
+                  className="flex items-center gap-1.5 hover:text-foreground transition-colors"
+                >
                   <MapPin className="h-4 w-4" />
-                  <span className="capitalize">
-                    {article.location.city ? `${article.location.city}, ` : ''}{article.location.country}
-                  </span>
-                </span>
+                  <span className="capitalize">{locationLabel}</span>
+                </Link>
                 <span className="flex items-center gap-1.5">
                   <Clock className="h-4 w-4" />
                   Updated {formatDate(article.updatedAt)}
@@ -97,13 +108,14 @@ export default function ArticlePage({ params }: ArticlePageProps) {
                 <h3 className="font-semibold mb-3">Affected Areas</h3>
                 <div className="flex flex-wrap gap-2">
                   {article.impactRegions.map((region) => (
-                    <span
+                    <Link
                       key={region}
-                      className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-muted text-sm"
+                      href={`/location/${region.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-muted text-sm hover:bg-muted/80 transition-colors"
                     >
                       <MapPin className="h-3 w-3" />
                       {region}
-                    </span>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -112,18 +124,31 @@ export default function ArticlePage({ params }: ArticlePageProps) {
             {/* Sources */}
             <div className="bg-card border border-border rounded-lg p-5">
               <h3 className="font-semibold mb-3">Sources</h3>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {article.sources.map((source) => (
-                  <li key={source.url}>
-                    <a
-                      href={source.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800"
-                    >
-                      {source.name}
-                      <ExternalLink className="h-3 w-3" />
-                    </a>
+                  <li key={source.url} className="flex flex-col gap-1">
+                    <div className="flex items-center gap-2">
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800"
+                      >
+                        {source.name}
+                        <ExternalLink className="h-3 w-3" />
+                      </a>
+                      {source.isOfficial && (
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-medium border border-emerald-200">
+                          <CheckCircle className="h-3 w-3" />
+                          Official
+                        </span>
+                      )}
+                    </div>
+                    {source.lastUpdated && (
+                      <span className="text-xs text-muted-foreground pl-4">
+                        Updated: {formatDate(source.lastUpdated)}
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>
