@@ -25,13 +25,11 @@ export default async function HomePage({
     order: typeof searchParams.order === 'string' ? (searchParams.order as any) : 'desc',
   }
 
-  // Fetch articles server-side
+  // Fetch articles server-side - NEVER show errors to users
   let articles: ArticleListItem[] = []
-  let error: string | null = null
   try {
     articles = await getArticles(filters)
   } catch (e) {
-    // Silently fail and use empty array - don't show error to user
     console.error('Failed to load articles:', e)
     articles = []
   }
@@ -118,7 +116,7 @@ export default async function HomePage({
 
       {/* Feed */}
       <section className="container mx-auto px-4 py-8">
-        <FeedList articles={articles} loading={false} error={error} />
+        <FeedList articles={articles} loading={false} error={null} />
       </section>
     </div>
   )
