@@ -27,14 +27,15 @@ export interface Article {
   articleStatus?: ArticleStatus  // Active/Ongoing/Resolved for display
   publishedAt: string
   updatedAt: string
-  tl_dr: string[]  // Array of bullets with context
+  tl_dr: string[]  // Array of bullets with context - FIRST BULLET MUST START WITH LOCATION NAME
+  body: string[]  // SEO body section - 2-3 paragraphs of news story
   whatThisMeans: string  // Practical impact summary for travelers
   whatChanged: string
   whoIsAffected: string
-  whatToDo: string
+  whatToDo: string  // Category-specific action items
   sources: Source[]
   impactRegions: string[]
-  relatedArticles?: string[]
+  relatedArticles?: string[]  // Array of article slugs for related articles section
 }
 
 export interface FilterState {
