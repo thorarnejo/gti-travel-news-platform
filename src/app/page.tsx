@@ -31,7 +31,9 @@ export default async function HomePage({
   try {
     articles = await getArticles(filters)
   } catch (e) {
-    error = e instanceof Error ? e.message : 'Failed to load articles'
+    // Silently fail and use empty array - don't show error to user
+    console.error('Failed to load articles:', e)
+    articles = []
   }
 
   // Fetch filters for the filter bar
