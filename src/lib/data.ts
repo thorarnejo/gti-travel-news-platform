@@ -9,6 +9,7 @@ import type {
   Location,
   FiltersResponse,
 } from '@/types'
+import { getMockArticleBySlug, getMockArticles, getMockCategories, getMockLocations } from './mockData'
 
 // Use current origin in browser, or absolute URL on server
 // For server-side rendering, we need the full production URL
@@ -61,8 +62,14 @@ export async function getArticles(filters: ArticleFilters = {}): Promise<Article
   const queryString = params.toString()
   const endpoint = `/articles${queryString ? `?${queryString}` : ''}`
 
-  const response = await apiFetch<ArticlesResponse>(endpoint)
-  return response.articles
+  try {
+    const response = await apiFetch<ArticlesResponse>(endpoint)
+    return response.articles
+  } catch (error) {
+    // Fallback to mock data if API unavailable
+    const mock = getMockArticles(filters)
+    return mock.articles
+  }
 }
 
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
@@ -70,6 +77,9 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
     const response = await apiFetch<{ article: Article }>(`/articles/${slug}`)
     return response.article
   } catch (error) {
+    // Fallback to mock data if API unavailable (e.g., during local dev)
+    const mockArticle = getMockArticleBySlug(slug)
+    if (mockArticle) return mockArticle
     if (error instanceof Error && error.message.includes('404')) {
       return null
     }
