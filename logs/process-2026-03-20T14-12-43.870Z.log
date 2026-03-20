@@ -1,0 +1,6 @@
+[2026-03-20T14:12:43.870Z] [INFO] 🚀 Starting CONTROLLED MODE queue processing
+[2026-03-20T14:12:43.870Z] [INFO] Dry run: DISABLED
+[2026-03-20T14:12:43.870Z] [INFO] Auto-publish threshold: 0.9
+[2026-03-20T14:12:43.870Z] [INFO] Review queue threshold: 0.75
+[2026-03-20T14:12:44.762Z] [INFO] 📋 Processing 0 pending items
+[2026-03-20T14:12:44.763Z] [INFO] ℹ️ No pending items to process

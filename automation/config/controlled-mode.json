@@ -1,0 +1,92 @@
+{
+  "version": "3.0.0",
+  "controlled_mode": true,
+  "dry_run": false,
+  "thresholds": {
+    "auto_publish_min_score": 0.90,
+    "review_queue_min_score": 0.75,
+    "reject_below_score": 0.75,
+    "media_sources_extra_threshold": 0.05
+  },
+  "source_policies": {
+    "official_airlines": {
+      "sources": ["sas-alerts", "norwegian-alerts", "lufthansa-news", "british-airways"],
+      "trust_boost": 0.10,
+      "auto_publish_eligible": true,
+      "min_score": 0.85
+    },
+    "official_airports": {
+      "sources": ["heathrow-alerts", "gatwick-alerts", "osl-alerts"],
+      "trust_boost": 0.10,
+      "auto_publish_eligible": true,
+      "min_score": 0.85
+    },
+    "government": {
+      "sources": ["norway-travel-advice", "uk-gov-travel", "us-state-dept"],
+      "trust_boost": 0.15,
+      "auto_publish_eligible": true,
+      "min_score": 0.80
+    },
+    "industry_authority": {
+      "sources": ["eurocontrol-news", "iata-travel-news", "icao-news"],
+      "trust_boost": 0.10,
+      "auto_publish_eligible": true,
+      "min_score": 0.85
+    },
+    "news_media": {
+      "sources": ["guardian-travel", "cnn-travel", "skift", "aviation-week"],
+      "trust_boost": 0,
+      "auto_publish_eligible": false,
+      "review_only": true,
+      "min_score": 0.90,
+      "extra_requirements": {
+        "require_travel_impact_keywords": ["cancelled", "delayed", "suspended", "strike", "closure", "disruption", "emergency"],
+        "require_actionable_advice": true,
+        "require_specific_location": true,
+        "min_content_length": 100
+      }
+    },
+    "aviation_blogs": {
+      "sources": ["simple-flying", "one-mile-at-a-time", "airlines-blog"],
+      "trust_boost": -0.05,
+      "auto_publish_eligible": false,
+      "review_only": true,
+      "min_score": 0.92
+    },
+    "technology_news": {
+      "sources": ["airport-technology", "railway-technology"],
+      "trust_boost": 0,
+      "auto_publish_eligible": false,
+      "review_only": true,
+      "min_score": 0.90,
+      "extra_requirements": {
+        "require_specific_impact": true
+      }
+    }
+  },
+  "filter_rules": {
+    "strict_mode": true,
+    "require_recent": true,
+    "max_age_hours": 48,
+    "require_travel_impact": true,
+    "block_generic_inspiration": true,
+    "block_promotional": true,
+    "min_title_length": 20,
+    "max_title_length": 150
+  },
+  "logging": {
+    "level": "info",
+    "log_to_file": true,
+    "log_dir": "/home/thor/.openclaw/workspace/gti-articles/news-platform/logs",
+    "retention_days": 30,
+    "log_fields": [
+      "timestamp",
+      "source",
+      "action",
+      "title",
+      "score",
+      "decision",
+      "reason"
+    ]
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "version": "2.2.0",
+  "sources": [
+    {
+      "id": "eurocontrol-news",
+      "name": "EUROCONTROL News",
+      "url": "https://www.eurocontrol.int/news",
+      "type": "rss",
+      "trustScore": 0.95,
+      "category": "industry",
+      "regions": ["europe"],
+      "fetchMethod": "rss",
+      "rssUrl": "https://www.eurocontrol.int/rss.xml",
+      "active": true
+    },
+    {
+      "id": "guardian-travel",
+      "name": "The Guardian Travel",
+      "url": "https://www.theguardian.com/travel",
+      "type": "rss",
+      "trustScore": 0.9,
+      "category": "news",
+      "regions": ["global"],
+      "fetchMethod": "rss",
+      "rssUrl": "https://www.theguardian.com/travel/rss",
+      "active": true
+    },
+    {
+      "id": "cnn-travel",
+      "name": "CNN Travel",
+      "url": "https://edition.cnn.com/travel",
+      "type": "rss",
+      "trustScore": 0.9,
+      "category": "news",
+      "regions": ["global"],
+      "fetchMethod": "rss",
+      "rssUrl": "http://rss.cnn.com/rss/edition_travel.rss",
+      "active": true
+    },
+    {
+      "id": "simple-flying",
+      "name": "Simple Flying",
+      "url": "https://simpleflying.com/",
+      "type": "rss",
+      "trustScore": 0.85,
+      "category": "airline",
+      "regions": ["global"],
+      "fetchMethod": "rss",
+      "rssUrl": "https://simpleflying.com/feed/",
+      "active": true
+    },
+    {
+      "id": "airport-technology",
+      "name": "Airport Technology",
+      "url": "https://www.airport-technology.com/",
+      "type": "rss",
+      "trustScore": 0.85,
+      "category": "airport",
+      "regions": ["global"],
+      "fetchMethod": "rss",
+      "rssUrl": "https://www.airport-technology.com/feed/",
+      "active": true
+    },
+    {
+      "id": "railway-technology",
+      "name": "Railway Technology",
+      "url": "https://www.railway-technology.com/",
+      "type": "rss",
+      "trustScore": 0.85,
+      "category": "rail",
+      "regions": ["global"],
+      "fetchMethod": "rss",
+      "rssUrl": "https://www.railway-technology.com/feed/",
+      "active": true
+    },
+    {
+      "id": "skift",
+      "name": "Skift",
+      "url": "https://skift.com/",
+      "type": "rss",
+      "trustScore": 0.9,
+      "category": "industry",
+      "regions": ["global"],
+      "fetchMethod": "rss",
+      "rssUrl": "https://skift.com/feed/",
+      "active": true
+    },
+    {
+      "id": "atw-online",
+      "name": "Aviation Week",
+      "url": "https://aviationweek.com/",
+      "type": "rss",
+      "trustScore": 0.95,
+      "category": "industry",
+      "regions": ["global"],
+      "fetchMethod": "rss",
+      "rssUrl": "https://aviationweek.com/rss.xml",
+      "active": true
+    },
+    {
+      "id": "afar",
+      "name": "AFAR",
+      "url": "https://www.afar.com/",
+      "type": "rss",
+      "trustScore": 0.8,
+      "category": "news",
+      "regions": ["global"],
+      "fetchMethod": "rss",
+      "rssUrl": "https://www.afar.com/feed",
+      "active": true
+    },
+    {
+      "id": "one-mile-at-a-time",
+      "name": "One Mile at a Time",
+      "url": "https://onemileatatime.com/",
+      "type": "rss",
+      "trustScore": 0.85,
+      "category": "airline",
+      "regions": ["global"],
+      "fetchMethod": "rss",
+      "rssUrl": "https://onemileatatime.com/feed/",
+      "active": true
+    }
+  ]
+}

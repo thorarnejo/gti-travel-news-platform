@@ -1,0 +1,12 @@
+[2026-03-20T13:26:46.685Z] [INFO] 🚀 Starting CONTROLLED MODE queue processing
+[2026-03-20T13:26:46.686Z] [INFO] Dry run: DISABLED
+[2026-03-20T13:26:46.686Z] [INFO] Auto-publish threshold: 0.9
+[2026-03-20T13:26:46.686Z] [INFO] Review queue threshold: 0.75
+[2026-03-20T13:26:46.953Z] [INFO] 📋 Processing 1 pending items
+[2026-03-20T13:26:46.989Z] [INFO] Processing from one-mile-at-a-time (policy: aviation_blogs)
+[2026-03-20T13:26:46.992Z] [INFO] 📊 Score: 0.9 | Source: one-mile-at-a-time | Policy: aviation_blogs
+[2026-03-20T13:26:46.992Z] [INFO]    Decision: review | Reason: Review-only source (aviation_blogs), score 0.9
+[2026-03-20T13:26:47.059Z] [INFO]    📋 REVIEW QUEUE: Draft 160b1149-9a5c-4e69-b3c1-68a2f497edfa
+[2026-03-20T13:26:47.060Z] [INFO] 
+✅ Queue processing complete
+[2026-03-20T13:26:47.060Z] [INFO] 📊 Summary: 0 published, 1 review, 0 rejected, 0 failed

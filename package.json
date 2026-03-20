@@ -11,7 +11,11 @@
     "db:seed": "node scripts/seed.js",
     "db:setup": "node scripts/setup.js",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "automation:fetch": "node automation/jobs/fetch-sources.js",
+    "automation:process": "node automation/jobs/process-queue.js",
+    "automation:process:controlled": "node automation/jobs/process-queue-controlled.js",
+    "automation:dry-run": "DRY_RUN=true node automation/jobs/process-queue-controlled.js"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",
@@ -37,6 +41,7 @@
     "jest": "^29.7.0",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.0"
   }
 }

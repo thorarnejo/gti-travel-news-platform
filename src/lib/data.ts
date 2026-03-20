@@ -10,10 +10,11 @@ import type {
   FiltersResponse,
 } from '@/types'
 
-// Use current origin in browser, or env variable on server
-const API_BASE = typeof window !== 'undefined' 
+// Use current origin in browser, or absolute URL on server
+// For server-side rendering, we need the full production URL
+const API_BASE = typeof window !== 'undefined'
   ? ''  // Empty string means use current origin in browser
-  : (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000')
+  : 'https://news-platform-fefkdpcr5-thorarnejo-8868s-projects.vercel.app'
 
 // ============================================================
 // API CLIENT
