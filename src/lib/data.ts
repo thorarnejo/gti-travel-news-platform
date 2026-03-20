@@ -11,9 +11,12 @@ import type {
 } from '@/types'
 
 // Use current origin in browser, or env variable on server
-const API_BASE = typeof window !== 'undefined' 
+// In production, use the deployed URL; fallback to localhost for development
+const API_BASE = typeof window !== 'undefined'
   ? ''  // Empty string means use current origin in browser
-  : (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000')
+  : (process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000')
 
 // ============================================================
 // API CLIENT
