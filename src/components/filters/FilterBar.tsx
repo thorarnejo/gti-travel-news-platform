@@ -116,7 +116,7 @@ export function FilterBar({ className, categories, locations }: FilterBarProps) 
               <LocationFilter
                 value={activeLocation}
                 onChange={(val) => updateFilter('location', val || null)}
-                locations={locations.map(l => l.name)}
+                locations={locations}
               />
               <SeverityFilter
                 value={activeSeverity}

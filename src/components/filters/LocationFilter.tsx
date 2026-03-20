@@ -7,7 +7,7 @@ import { MapPin, ChevronDown, X } from 'lucide-react'
 interface LocationFilterProps {
   value: string
   onChange: (value: string) => void
-  locations: string[]
+  locations: { slug: string; name: string }[]
 }
 
 export function LocationFilter({ value, onChange, locations }: LocationFilterProps) {
@@ -25,8 +25,10 @@ export function LocationFilter({ value, onChange, locations }: LocationFilterPro
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
+  const selectedLocation = locations.find((loc) => loc.slug === value)
+
   const filteredLocations = locations.filter((loc) =>
-    loc.toLowerCase().includes(search.toLowerCase())
+    loc.name.toLowerCase().includes(search.toLowerCase())
   )
 
   return (
@@ -41,7 +43,7 @@ export function LocationFilter({ value, onChange, locations }: LocationFilterPro
         )}
       >
         <MapPin className="h-3.5 w-3.5" />
-        <span>{value || 'Location'}</span>
+        <span>{selectedLocation?.name || 'Location'}</span>
         {value ? (
           <X
             className="h-3.5 w-3.5 hover:text-foreground/80"
@@ -72,21 +74,21 @@ export function LocationFilter({ value, onChange, locations }: LocationFilterPro
             ) : (
               filteredLocations.map((location) => (
                 <button
-                  key={location}
+                  key={location.slug}
                   onClick={() => {
-                    onChange(location)
+                    onChange(location.slug)
                     setIsOpen(false)
                     setSearch('')
                   }}
                   className={cn(
                     'w-full flex items-center gap-2 px-3 py-2 text-sm text-left rounded-md transition-colors',
-                    value === location
+                    value === location.slug
                       ? 'bg-primary/10 text-primary'
                       : 'hover:bg-muted'
                   )}
                 >
                   <MapPin className="h-3.5 w-3.5 text-muted-foreground" />
-                  {location}
+                  {location.name}
                 </button>
               ))
             )}
