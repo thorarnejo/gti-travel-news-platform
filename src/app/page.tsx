@@ -4,6 +4,10 @@ import { getArticles, getFilters } from '@/lib/data'
 import type { ArticleFilters, ArticleListItem, FiltersResponse } from '@/types'
 import { Activity } from 'lucide-react'
 
+// Force dynamic rendering - don't cache this page
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 // Server component - no 'use client' directive
 export default async function HomePage({
   searchParams,
