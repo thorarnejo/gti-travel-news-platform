@@ -192,10 +192,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 {/* Badges row */}
                 <div className="flex flex-wrap items-center gap-2 mb-4">
                   {article.category && (
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 text-primary text-sm font-semibold rounded-full">
+                    <Link
+                      href={`/category/${article.category.slug}`}
+                      className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 text-primary text-sm font-semibold rounded-full hover:bg-primary/20 transition-colors"
+                    >
                       {article.category.icon && <span>{article.category.icon}</span>}
                       {article.category.name}
-                    </span>
+                    </Link>
                   )}
                   <SeverityBadge severity={article.severity} />
                   <StatusBadge status={article.status} />
@@ -212,7 +215,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     <span className="flex items-center gap-1.5">
                       <MapPin className="h-4 w-4 text-amber-600" />
                       <span className="font-medium text-foreground">
-                        {article.locations.map((l) => l.name).join(', ')}
+                        {article.locations.map((l, i) => (
+                          <span key={l.id}>
+                            <Link href={`/location/${l.slug}`} className="hover:underline">{l.name}</Link>
+                            {i < article.locations.length - 1 ? ', ' : ''}
+                          </span>
+                        ))}
                       </span>
                     </span>
                   )}

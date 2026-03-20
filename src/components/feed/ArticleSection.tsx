@@ -17,10 +17,63 @@ function toList(text: string | null | undefined): string[] {
     .filter(Boolean)
 }
 
+// Dynamic ACTION REQUIRED messages based on article type
+function getActionMessage(article: Article): { label: string; message: string } {
+  const categorySlug = article.category?.slug
+  const status = article.status
+
+  // Transport/strike disruptions
+  if (categorySlug === 'transport' || status === 'disruption') {
+    return {
+      label: 'ACTION REQUIRED',
+      message: 'Book alternative transport or rebook flights immediately — affected routes are filling fast.',
+    }
+  }
+
+  // Weather/health advisories
+  if (categorySlug === 'weather' || categorySlug === 'health' || status === 'warning') {
+    return {
+      label: 'ACTION REQUIRED',
+      message: 'Check flight status and health advisories before departure — conditions may change rapidly.',
+    }
+  }
+
+  // Attractions/event closures
+  if (categorySlug === 'attractions') {
+    return {
+      label: 'ACTION REQUIRED',
+      message: 'Reserve accommodations and attractions early — peak season availability is extremely limited.',
+    }
+  }
+
+  // Entry rules / visa changes
+  if (categorySlug === 'entry-rules') {
+    return {
+      label: 'ACTION REQUIRED',
+      message: 'Verify your eligibility and submit applications well ahead of planned travel dates.',
+    }
+  }
+
+  // Pricing changes
+  if (categorySlug === 'pricing' || status === 'price_change') {
+    return {
+      label: 'ACTION REQUIRED',
+      message: 'Book and prepay before the price change takes effect to lock in current rates.',
+    }
+  }
+
+  // Default
+  return {
+    label: 'ACTION REQUIRED',
+    message: 'Complete these steps before departure or check-in to avoid disruption.',
+  }
+}
+
 export function ArticleSection({ article, className }: ArticleSectionProps) {
   const changedItems = toList(article.what_changed)
   const affectedItems = toList(article.who_is_affected)
   const actionItems = toList(article.what_to_do)
+  const actionMessage = getActionMessage(article)
 
   return (
     <div className={cn('space-y-6', className)}>
@@ -104,9 +157,9 @@ export function ArticleSection({ article, className }: ArticleSectionProps) {
 
         {/* Action guidance box */}
         <div className="rounded-lg border-2 border-emerald-300 bg-white p-4">
-          <p className="text-xs uppercase tracking-wider text-emerald-700 font-bold mb-1">Action Required</p>
+          <p className="text-xs uppercase tracking-wider text-emerald-700 font-bold mb-1">{actionMessage.label}</p>
           <p className="text-sm font-semibold text-emerald-900">
-            Complete these steps before departure or check-in to avoid disruption.
+            {actionMessage.message}
           </p>
         </div>
       </section>
