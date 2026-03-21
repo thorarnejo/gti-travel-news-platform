@@ -28,8 +28,8 @@ export const sampleArticles: Article[] = [
       "\n\n**Q3: How can I stay informed if another major disruption occurs?**\nA: Heathrow recommends signing up for their official flight alerts, following their verified social media channels for real-time updates, and maintaining direct contact with your airline for the most accurate flight-specific information.",
     ],
     heroImage: {
-      src: 'http://89.167.53.202/processed/hero/heathrow-hero.jpg',
-      alt: 'Heathrow Airport London',
+      src: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1200&q=80',
+      alt: 'Heathrow Airport London terminal',
     },
     inlineMedia: [
       {
