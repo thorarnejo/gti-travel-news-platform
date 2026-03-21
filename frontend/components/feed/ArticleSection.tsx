@@ -54,9 +54,10 @@ function toRichHtml(input: string) {
     .replace(/^## (.*)$/gm, '<h3>$1</h3>')
     .replace(/^>\s?(.*)$/gm, '<blockquote>$1</blockquote>')
 
-  // Format FAQ Q: and A: patterns with bold questions and line breaks
-  formatted = formatted.replace(/Q(\d+):\s*([^?]+\?)/g, '<br /><br /><strong>Q$1: $2</strong>')
-  formatted = formatted.replace(/A:\s*/g, '<br />A: ')
+  // Normalize FAQ patterns to markdown so both inline and pre-formatted FAQ render consistently
+  formatted = formatted
+    .replace(/(^|\n)Q(\d+):\s*(.+\?)/g, '$1**Q$2: $3**')
+    .replace(/\n?A:\s*/g, '\nA: ')
 
   // Apply remaining formatting
   formatted = formatted

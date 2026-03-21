@@ -137,6 +137,31 @@ export default function ArticlePage({ params }: ArticlePageProps) {
           <div className="lg:col-span-2">
             <ArticleSection article={article} />
 
+            {article.sources && article.sources.length > 0 && (
+              <section className="mt-6 rounded-lg border border-border p-5">
+                <h3 className="font-semibold text-lg mb-3">Sources</h3>
+                <ul className="space-y-2">
+                  {article.sources.map((source, index) => (
+                    <li key={`${source.url}-${index}`} className="flex items-center gap-2 flex-wrap text-sm">
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 hover:underline"
+                      >
+                        {source.name}
+                      </a>
+                      {source.isOfficial && (
+                        <span className="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">
+                          Official
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
             {article.inlineMedia && article.inlineMedia.length > 0 && (
               <section className="mt-6">
                 {article.inlineMedia.map((media) => (
