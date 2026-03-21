@@ -45,16 +45,26 @@ function SourceItem({ source }: { source: Source }) {
 }
 
 function toRichHtml(input: string) {
-  return input
+  // Format FAQ Q/A pairs with proper line breaks
+  let formatted = input
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/^### (.*)$/gm, '<h4>$1</h4>')
     .replace(/^## (.*)$/gm, '<h3>$1</h3>')
     .replace(/^>\s?(.*)$/gm, '<blockquote>$1</blockquote>')
+
+  // Format FAQ Q: and A: patterns with bold questions and line breaks
+  formatted = formatted.replace(/Q(\d+):\s*([^?]+\?)/g, '<br /><br /><strong>Q$1: $2</strong>')
+  formatted = formatted.replace(/A:\s*/g, '<br />A: ')
+
+  // Apply remaining formatting
+  formatted = formatted
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
     .replace(/\n/g, '<br />')
+
+  return formatted
 }
 
 export function ArticleSection({ article, className }: ArticleSectionProps) {
@@ -152,59 +162,6 @@ export function ArticleSection({ article, className }: ArticleSectionProps) {
           </div>
         </section>
       )}
-
-      {/* Impact Regions */}
-      {article.impactRegions && article.impactRegions.length > 0 && (
-        <section className="border border-border rounded-lg p-5">
-          <h3 className="font-semibold mb-3">Impact Regions</h3>
-          <div className="flex flex-wrap gap-2">
-            {article.impactRegions.map((region) => (
-              <Link
-                key={region}
-                href={`/location/${region.toLowerCase().replace(/\s+/g, '-')}`}
-                className="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm hover:bg-slate-200 hover:text-slate-900 transition-colors"
-              >
-                <MapPin className="h-3 w-3 mr-1.5" />
-                {region}
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Sources */}
-      <section className="border border-border rounded-lg p-5">
-        <div className="flex items-center gap-2 mb-3">
-          <div className="p-1.5 rounded-md bg-slate-100">
-            <TrendingUp className="h-4 w-4 text-slate-700" />
-          </div>
-          <h3 className="font-semibold text-lg">Sources</h3>
-        </div>
-        
-        {/* Official Sources */}
-        {officialSources.length > 0 && (
-          <div className="mb-4">
-            <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Official Sources</h4>
-            <ul className="space-y-0">
-              {officialSources.map((source, index) => (
-                <SourceItem key={`official-${index}`} source={source} />
-              ))}
-            </ul>
-          </div>
-        )}
-        
-        {/* News Sources */}
-        {newsSources.length > 0 && (
-          <div>
-            <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">News & Analysis</h4>
-            <ul className="space-y-0">
-              {newsSources.map((source, index) => (
-                <SourceItem key={`news-${index}`} source={source} />
-              ))}
-            </ul>
-          </div>
-        )}
-      </section>
     </div>
   )
 }
