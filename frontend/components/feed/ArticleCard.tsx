@@ -211,12 +211,14 @@ export function ArticleCard({ article, variant = 'default', className, isFeature
         </div>
 
         {heroImage && (
-          <div className="order-2 shrink-0">
-            <img
-              src={heroImage.src}
-              alt={heroImage.alt}
-              className="w-24 h-24 md:w-32 md:h-32 object-cover rounded-lg"
-            />
+          <div className="order-2 shrink-0 w-32 md:w-44 lg:w-56">
+            <div className="aspect-video overflow-hidden rounded-lg border border-gray-200">
+              <img
+                src={heroImage.src}
+                alt={heroImage.alt}
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
         )}
       </div>
