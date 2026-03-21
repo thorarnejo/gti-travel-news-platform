@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { MapPin, Clock, Plane, Building, Map, FileText, Shield, Cloud, Zap, AlertCircle, Users } from 'lucide-react'
 import type { ArticleListItem } from '@/types'
 import { StatusBadge } from '@/components/ui/StatusBadge'
@@ -52,6 +53,7 @@ export function ArticleCard({ article, variant = 'default', className }: Article
   const tldrLine = getTldrLine(article.tldr)
   const isNew = article.published_at && isRecent(article.published_at, 2)
   const isCritical = article.severity === 'critical'
+  const heroImage = article.image_url
 
   if (variant === 'compact') {
     return (
@@ -114,48 +116,63 @@ export function ArticleCard({ article, variant = 'default', className }: Article
       <Link
         href={`/article/${article.slug}`}
         className={cn(
-          'block p-6 rounded-xl border transition-all',
+          'block overflow-hidden rounded-xl border transition-all',
           isCritical
             ? 'bg-gradient-to-br from-red-50 to-red-100 border-red-300 hover:border-red-400 shadow-md'
             : 'bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20 hover:border-primary/40',
           className
         )}
       >
-        <div className="flex items-center gap-2 mb-3">
-          <div className={cn('p-1.5 rounded-lg', isCritical ? 'bg-red-200' : 'bg-primary/20')}>
-            <CategoryIcon className={cn('h-5 w-5', isCritical ? 'text-red-700' : 'text-primary')} />
+        {heroImage && (
+          <div className="relative h-52 w-full md:h-64">
+            <Image
+              src={heroImage}
+              alt={article.headline}
+              fill
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover"
+              priority={isCritical}
+            />
           </div>
-          <span className={cn('text-sm font-medium capitalize', isCritical ? 'text-red-700' : 'text-primary')}>
-            {article.category.name}
-          </span>
-          <span className="text-muted-foreground">•</span>
-          <span className="text-xs text-muted-foreground capitalize">{locationName}</span>
-          {isNew && (
-            <span className="inline-flex items-center gap-0.5 px-2 py-0.5 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
-              <Zap className="h-3 w-3" />
-              NEW
+        )}
+
+        <div className="p-6">
+          <div className="flex items-center gap-2 mb-3">
+            <div className={cn('p-1.5 rounded-lg', isCritical ? 'bg-red-200' : 'bg-primary/20')}>
+              <CategoryIcon className={cn('h-5 w-5', isCritical ? 'text-red-700' : 'text-primary')} />
+            </div>
+            <span className={cn('text-sm font-medium capitalize', isCritical ? 'text-red-700' : 'text-primary')}>
+              {article.category.name}
             </span>
-          )}
-        </div>
-        <h2 className={cn('text-xl font-bold mb-3 leading-tight', isCritical && 'text-red-900')}>{article.headline}</h2>
+            <span className="text-muted-foreground">•</span>
+            <span className="text-xs text-muted-foreground capitalize">{locationName}</span>
+            {isNew && (
+              <span className="inline-flex items-center gap-0.5 px-2 py-0.5 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
+                <Zap className="h-3 w-3" />
+                NEW
+              </span>
+            )}
+          </div>
+          <h2 className={cn('text-xl font-bold mb-3 leading-tight', isCritical && 'text-red-900')}>{article.headline}</h2>
 
-        <div className="mb-4 rounded-md border border-blue-100 bg-blue-50 p-3">
-          <p className="text-[11px] font-semibold uppercase tracking-wide text-blue-800 mb-1">TL;DR</p>
-          <p className="text-sm text-blue-900 line-clamp-2">{tldrLine}</p>
-        </div>
+          <div className="mb-4 rounded-md border border-blue-100 bg-blue-50 p-3">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-blue-800 mb-1">TL;DR</p>
+            <p className="text-sm text-blue-900 line-clamp-2">{tldrLine}</p>
+          </div>
 
-        <div className="flex items-center gap-3 mb-3">
-          <SeverityBadge severity={article.severity} />
-          <StatusBadge status={article.status} />
-          <span className="ml-auto inline-flex items-center gap-1 text-xs text-muted-foreground">
-            <Users className="h-3.5 w-3.5" />
-            Affected: {locationName}
-          </span>
+          <div className="flex items-center gap-3 mb-3">
+            <SeverityBadge severity={article.severity} />
+            <StatusBadge status={article.status} />
+            <span className="ml-auto inline-flex items-center gap-1 text-xs text-muted-foreground">
+              <Users className="h-3.5 w-3.5" />
+              Affected: {locationName}
+            </span>
+          </div>
+          <p className="text-sm text-amber-800 font-medium flex items-center gap-1.5">
+            <AlertCircle className="h-4 w-4" />
+            {actionLine}
+          </p>
         </div>
-        <p className="text-sm text-amber-800 font-medium flex items-center gap-1.5">
-          <AlertCircle className="h-4 w-4" />
-          {actionLine}
-        </p>
       </Link>
     )
   }
@@ -171,57 +188,75 @@ export function ArticleCard({ article, variant = 'default', className }: Article
         className
       )}
     >
-      <div className="flex items-start justify-between gap-4 mb-3">
-        <div className="flex items-center gap-2">
-          <div className={cn('p-2 rounded-lg', isCritical ? 'bg-red-100' : 'bg-muted')}>
-            <CategoryIcon className={cn('h-4 w-4', isCritical ? 'text-red-600' : 'text-muted-foreground')} />
+      <div className="flex items-start gap-4 md:gap-6">
+        <div className="flex-1 min-w-0 order-1">
+          <div className="flex items-start justify-between gap-4 mb-3">
+            <div className="flex items-center gap-2">
+              <div className={cn('p-2 rounded-lg', isCritical ? 'bg-red-100' : 'bg-muted')}>
+                <CategoryIcon className={cn('h-4 w-4', isCritical ? 'text-red-600' : 'text-muted-foreground')} />
+              </div>
+              <div className="flex items-center gap-2">
+                <span
+                  className={cn(
+                    'text-xs font-medium uppercase tracking-wide capitalize',
+                    isCritical ? 'text-red-700' : 'text-muted-foreground'
+                  )}
+                >
+                  {article.category.name}
+                </span>
+                {isNew && (
+                  <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-semibold rounded-full">
+                    <Zap className="h-2.5 w-2.5" />
+                    NEW
+                  </span>
+                )}
+              </div>
+            </div>
+            <div className="flex flex-col items-end gap-1">
+              <SeverityBadge severity={article.severity} />
+              <StatusBadge status={article.status} />
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <span
-              className={cn(
-                'text-xs font-medium uppercase tracking-wide capitalize',
-                isCritical ? 'text-red-700' : 'text-muted-foreground'
-              )}
-            >
-              {article.category.name}
+
+          <h3 className={cn('font-semibold text-base mb-3 leading-snug line-clamp-2', isCritical && 'text-red-800')}>
+            {article.headline}
+          </h3>
+
+          <div className="mb-3 rounded-md border border-blue-100 bg-blue-50 p-2.5">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-blue-800 mb-1">TL;DR</p>
+            <p className="text-sm text-blue-900 line-clamp-2">{tldrLine}</p>
+          </div>
+
+          <div className="flex items-start gap-1.5 mb-3 p-2 bg-amber-50 rounded-md border border-amber-100">
+            <AlertCircle className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />
+            <p className="text-sm text-amber-800 font-medium line-clamp-2">{actionLine}</p>
+          </div>
+
+          <div className="flex items-center gap-4 text-xs text-muted-foreground">
+            <span className="flex items-center gap-1.5">
+              <MapPin className="h-3.5 w-3.5" />
+              <span className="capitalize">Affected: {locationName}</span>
             </span>
-            {isNew && (
-              <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-semibold rounded-full">
-                <Zap className="h-2.5 w-2.5" />
-                NEW
-              </span>
-            )}
+            <span className="flex items-center gap-1.5">
+              <Clock className="h-3.5 w-3.5" />
+              {article.published_at ? formatTimeAgo(article.published_at) : 'Draft'}
+            </span>
           </div>
         </div>
-        <div className="flex flex-col items-end gap-1">
-          <SeverityBadge severity={article.severity} />
-          <StatusBadge status={article.status} />
-        </div>
-      </div>
 
-      <h3 className={cn('font-semibold text-base mb-3 leading-snug line-clamp-2', isCritical && 'text-red-800')}>
-        {article.headline}
-      </h3>
-
-      <div className="mb-3 rounded-md border border-blue-100 bg-blue-50 p-2.5">
-        <p className="text-[11px] font-semibold uppercase tracking-wide text-blue-800 mb-1">TL;DR</p>
-        <p className="text-sm text-blue-900 line-clamp-2">{tldrLine}</p>
-      </div>
-
-      <div className="flex items-start gap-1.5 mb-3 p-2 bg-amber-50 rounded-md border border-amber-100">
-        <AlertCircle className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />
-        <p className="text-sm text-amber-800 font-medium line-clamp-2">{actionLine}</p>
-      </div>
-
-      <div className="flex items-center gap-4 text-xs text-muted-foreground">
-        <span className="flex items-center gap-1.5">
-          <MapPin className="h-3.5 w-3.5" />
-          <span className="capitalize">Affected: {locationName}</span>
-        </span>
-        <span className="flex items-center gap-1.5">
-          <Clock className="h-3.5 w-3.5" />
-          {article.published_at ? formatTimeAgo(article.published_at) : 'Draft'}
-        </span>
+        {heroImage && (
+          <div className="order-2 shrink-0 w-32 md:w-44 lg:w-56">
+            <div className="relative aspect-video overflow-hidden rounded-lg border border-gray-200">
+              <Image
+                src={heroImage}
+                alt={article.headline}
+                fill
+                sizes="(max-width: 768px) 128px, (max-width: 1024px) 176px, 224px"
+                className="object-cover"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </Link>
   )

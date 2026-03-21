@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowLeft, MapPin, Clock, ExternalLink, ChevronRight, Home } from 'lucide-react'
 import { getArticleBySlug } from '@/lib/data'
 import { StatusBadge } from '@/components/ui/StatusBadge'
@@ -231,6 +232,19 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 </div>
               </div>
             </div>
+
+            {article.image_url && (
+              <div className="mt-8 relative aspect-video overflow-hidden rounded-xl border border-border">
+                <Image
+                  src={article.image_url}
+                  alt={article.headline}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 1024px"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            )}
           </div>
         </div>
 
