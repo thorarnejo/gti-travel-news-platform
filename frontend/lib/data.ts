@@ -5,7 +5,7 @@ export const sampleArticles: Article[] = [
   {
     id: '11',
     slug: 'heathrow-kelly-review-power-outage-march-2026',
-    title: 'Heathrow Kelly Review Published: Power Outage Lessons and Operational Changes',
+    title: 'Heathrow Power Outage: Airport Changes After 18-Hour Shutdown',
     summary: "ACTION REQUIRED: If traveling via Heathrow in the next 30 days, verify your airline's updated contingency plans and allow extra connection time for potential residual disruptions.",
     category: 'flights',
     location: { country: 'United Kingdom', city: 'London', countryCode: 'GB' },
