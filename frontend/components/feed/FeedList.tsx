@@ -34,8 +34,13 @@ export function FeedList({ articles, variant = 'default', className }: FeedListP
         </p>
       </div>
       <div className="grid gap-4">
-        {articles.map((article) => (
-          <ArticleCard key={article.id} article={articleToListItem(article)} variant={variant} />
+        {articles.map((article, index) => (
+          <ArticleCard
+            key={article.id}
+            article={articleToListItem(article)}
+            variant={variant}
+            isFeatured={variant === 'default' && index === 0}
+          />
         ))}
       </div>
     </div>

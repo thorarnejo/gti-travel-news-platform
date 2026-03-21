@@ -80,12 +80,24 @@ export interface ArticleListItem {
   updated_at?: string
 }
 
+function getSummaryPrefix(severity: Severity): string {
+  if (severity === 'critical' || severity === 'high') return 'ACTION REQUIRED: '
+  return 'TL;DR: '
+}
+
+function stripExistingPrefix(summary: string): string {
+  return summary.replace(/^(ACTION REQUIRED:\s*|TL;DR:\s*)/i, '').trim()
+}
+
 // Helper to convert Article to ArticleListItem for feed display
 export function articleToListItem(article: Article): ArticleListItem {
+  const normalizedSummary = stripExistingPrefix(article.summary)
+  const prefixedSummary = `${getSummaryPrefix(article.severity)}${normalizedSummary}`
+
   return {
     slug: article.slug,
     headline: article.title,
-    summary: article.summary,
+    summary: prefixedSummary,
     category: { name: article.category, slug: article.category },
     severity: article.severity,
     status: article.status,

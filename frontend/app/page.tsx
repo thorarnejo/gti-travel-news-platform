@@ -22,7 +22,7 @@ function HomeContent() {
   const locations = getLocations()
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero */}
       <section className="bg-gradient-to-b from-primary/5 to-background py-12 md:py-16">
         <div className="container mx-auto px-4 text-center">
