@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { FeedList } from '@/components/feed/FeedList'
 import { FilterBar } from '@/components/filters/FilterBar'
+import { SubscribeButton } from '@/components/SubscribeButton'
 import { getArticles, getCategories, getLocations } from '@/lib/data'
 import { Plane } from 'lucide-react'
 
@@ -14,12 +15,12 @@ function HomeContent() {
     category: searchParams.get('category') || undefined,
     location: searchParams.get('location') || undefined,
     severity: searchParams.get('severity') || undefined,
-    sortBy: searchParams.get('sortBy') || 'latest',
+    sortBy: (searchParams.get('sortBy') as 'latest' | 'severity' | null) || 'latest',
   }
 
   const articles = getArticles(filters)
-  const categories = getCategories()
-  const locations = getLocations()
+  const categories = getCategories().map((c) => c.slug)
+  const locations = getLocations().map((l) => l.name)
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -34,9 +35,14 @@ function HomeContent() {
             Travel News Live Feed
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Real-time alerts, updates, and news to help you travel smarter. 
+            Real-time alerts, updates, and news to help you travel smarter.
             From flight disruptions to visa changes, we keep you informed.
           </p>
+
+          {/* Subscribe CTA */}
+          <div className="mt-8">
+            <SubscribeButton variant="hero" />
+          </div>
         </div>
       </section>
 

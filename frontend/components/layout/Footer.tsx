@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Plane, Mail, Twitter, Youtube } from 'lucide-react'
+import { SubscribeButton } from '@/components/SubscribeButton'
 
 interface FooterProps {
   className?: string
@@ -46,7 +47,7 @@ export function Footer({ className }: FooterProps) {
 
           <div>
             <h4 className="font-semibold mb-4">Connect</h4>
-            <div className="flex gap-4">
+            <div className="flex gap-4 mb-4">
               <a href="#" className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
@@ -57,6 +58,7 @@ export function Footer({ className }: FooterProps) {
                 <Mail className="h-5 w-5" />
               </a>
             </div>
+            <SubscribeButton variant="footer" />
           </div>
         </div>
 

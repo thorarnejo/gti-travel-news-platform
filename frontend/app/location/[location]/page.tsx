@@ -10,14 +10,14 @@ import Link from 'next/link'
 
 function LocationContent({ location }: { location: string }) {
   const searchParams = useSearchParams()
-  const categories = getCategories()
-  const locations = getLocations()
+  const categories = getCategories().map((c) => c.slug)
+  const locations = getLocations().map((l) => l.name)
 
   const filters = {
     location,
     category: searchParams.get('category') || undefined,
     severity: searchParams.get('severity') || undefined,
-    sortBy: searchParams.get('sortBy') || 'latest',
+    sortBy: (searchParams.get('sortBy') as 'latest' | 'severity' | null) || 'latest',
   }
 
   const articles = getArticles(filters)

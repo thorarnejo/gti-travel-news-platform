@@ -53,19 +53,19 @@ function InlineMediaBlock({ media }: { media: InlineMedia }) {
 }
 
 export async function generateMetadata({ params }: ArticlePageProps) {
-  const article = getArticleBySlug(params.slug)
+  const article = await getArticleBySlug(params.slug)
   if (!article) return { title: 'Article Not Found' }
 
   return {
     title: article.title,
     description: article.summary,
-    keywords: `${article.location.city || article.location.country}, ${article.category}, travel news, travel advisory`,
+    keywords: `${article.location?.city || article.location?.country}, ${article.category}, travel news, travel advisory`,
   }
 }
 
-export default function ArticlePage({ params }: ArticlePageProps) {
+export default async function ArticlePage({ params }: ArticlePageProps) {
   unstable_noStore() // Disable caching to ensure fresh data
-  const article = getArticleBySlug(params.slug)
+  const article = await getArticleBySlug(params.slug)
 
   if (!article) {
     notFound()
