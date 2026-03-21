@@ -81,7 +81,7 @@ export function ArticleSection({ article, className }: ArticleSectionProps) {
           <div className="p-1.5 rounded-md bg-primary/10">
             <Info className="h-4 w-4 text-primary" />
           </div>
-          <h3 className="font-semibold text-lg">TL;DR</h3>
+          <h3 className="font-semibold text-lg">Quick Summary</h3>
         </div>
         <ul className="space-y-2">
           {Array.isArray(article.tl_dr) ? (
