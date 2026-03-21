@@ -19,6 +19,9 @@ import { ArticleSection } from '@/components/feed/ArticleSection'
 import { formatDate } from '@/lib/utils'
 import type { InlineMedia } from '@/types'
 
+export const revalidate = 0
+export const dynamic = 'force-dynamic'
+
 interface ArticlePageProps {
   params: { slug: string }
 }
