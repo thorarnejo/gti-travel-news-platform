@@ -27,8 +27,8 @@ interface ArticlePageProps {
 function InlineMediaBlock({ media }: { media: InlineMedia }) {
   return (
     <figure className="my-6">
-      <div className="overflow-hidden rounded-xl border border-border bg-card">
-        {media.type === 'map' || media.type === 'embed' ? (
+      {media.type === 'map' || media.type === 'embed' ? (
+        <div className="overflow-hidden rounded-xl border border-border bg-card">
           <iframe
             src={media.src}
             title={media.title || 'Embedded media'}
@@ -36,10 +36,12 @@ function InlineMediaBlock({ media }: { media: InlineMedia }) {
             className="h-[280px] w-full md:h-[360px]"
             referrerPolicy="no-referrer-when-downgrade"
           />
-        ) : (
-          <img src={media.src} alt={media.title || 'Inline media'} className="h-[220px] w-full object-cover md:h-[300px]" />
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="aspect-video overflow-hidden rounded-xl border border-border bg-card">
+          <img src={media.src} alt={media.title || 'Inline media'} className="h-full w-full object-cover" />
+        </div>
+      )}
       {(media.title || media.caption) && (
         <figcaption className="mt-2 text-xs text-muted-foreground">
           {media.title && <span className="font-medium text-foreground/80">{media.title}. </span>}
@@ -124,8 +126,8 @@ export default function ArticlePage({ params }: ArticlePageProps) {
           </div>
 
           {article.heroImage && (
-            <div className="mt-8 overflow-hidden rounded-xl border border-border">
-              <img src={article.heroImage.src} alt={article.heroImage.alt} className="h-56 w-full object-cover md:h-80 lg:h-96" />
+            <div className="mt-8 aspect-video overflow-hidden rounded-xl border border-border">
+              <img src={article.heroImage.src} alt={article.heroImage.alt} className="h-full w-full object-cover" />
             </div>
           )}
         </div>
