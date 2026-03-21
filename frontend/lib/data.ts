@@ -21,7 +21,11 @@ export const sampleArticles: Article[] = [
     articleStatus: 'active',
     publishedAt: '2026-03-15T05:30:00Z',
     updatedAt: '2026-03-20T22:30:00Z',
-    tl_dr: [
+
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1436491865332?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Passasjerfly på rullebanen ved London Heathrow',
+    },    tl_dr: [
       'London Heathrow: ground handling staff action has disrupted baggage loading and turnaround windows, creating rolling delays and selective cancellations.',
       'Main impact is concentrated in Terminals 2 and 3, with elevated missed-connection risk for same-day onward flights.',
       'Airlines have opened fee waivers for date changes and same-cabin rerouting where seats exist.',
@@ -56,7 +60,11 @@ export const sampleArticles: Article[] = [
     articleStatus: 'ongoing',
     publishedAt: '2026-03-19T09:00:00Z',
     updatedAt: '2026-03-21T08:30:00Z',
-    tl_dr: [
+
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1492571350019?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Tokyo skyline ved skumring',
+    },    tl_dr: [
       'Japan: ETA pre-clearance for visa-free markets is moving from proposal to implementation guidance.',
       'Airlines are expected to enforce approved ETA status at check-in, not only on arrival.',
       'Processing windows vary by market and can extend during demand peaks.',
@@ -91,7 +99,11 @@ export const sampleArticles: Article[] = [
     articleStatus: 'ongoing',
     publishedAt: '2026-03-20T07:00:00Z',
     updatedAt: '2026-03-21T07:40:00Z',
-    tl_dr: [
+
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1570077188670?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Hvite hus og klipper i Santorini',
+    },    tl_dr: [
       'Santorini: geophysical uplift monitoring prompted tourism operations review and contingency planning.',
       'No blanket closure announced, but local authorities are testing readiness for transport and crowd controls.',
       'Day-trip visitors and cruise-linked itineraries face highest same-day schedule volatility.',
@@ -126,7 +138,11 @@ export const sampleArticles: Article[] = [
     articleStatus: 'active',
     publishedAt: '2026-03-18T10:30:00Z',
     updatedAt: '2026-03-21T07:55:00Z',
-    tl_dr: [
+
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1488646953014?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Reisepass og boardingkort på et bord',
+    },    tl_dr: [
       'Global: 2025 passport mobility rankings show notable gains and declines across key travel markets.',
       'Ranking changes alter planning complexity for multi-stop leisure, study, and business trips.',
       'Transit rights and visa-on-arrival access differ from full visa-free entry and must be checked separately.',
@@ -161,7 +177,11 @@ export const sampleArticles: Article[] = [
     articleStatus: 'active',
     publishedAt: '2026-03-20T11:00:00Z',
     updatedAt: '2026-03-21T08:05:00Z',
-    tl_dr: [
+
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1512453979798?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Burj Khalifa og Dubai skyline',
+    },    tl_dr: [
       'Dubai: tourism operators face updated sustainability criteria and reporting expectations.',
       'Hotels and attractions may adjust offerings, fees, and disclosures during compliance rollout.',
       'Travelers gain clearer environmental transparency but should verify what is actually included.',
@@ -196,7 +216,11 @@ export const sampleArticles: Article[] = [
     articleStatus: 'active',
     publishedAt: '2026-03-19T14:20:00Z',
     updatedAt: '2026-03-21T07:20:00Z',
-    tl_dr: [
+
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1502602898657?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Eiffeltårnet i Paris',
+    },    tl_dr: [
       'Paris: post-Olympic demand normalization has reduced occupancy in several hotel segments.',
       'Rate softening is strongest outside immediate landmark districts and weekend spikes.',
       'Travelers can secure stronger cancellation terms and upgrades in shoulder windows.',
@@ -231,7 +255,11 @@ export const sampleArticles: Article[] = [
     articleStatus: 'ongoing',
     publishedAt: '2026-03-20T09:40:00Z',
     updatedAt: '2026-03-21T08:15:00Z',
-    tl_dr: [
+
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1508009603885?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Bangkok skyline med templer',
+    },    tl_dr: [
       'Thailand: updated digital nomad visa framework refines eligibility, duration, and renewal conditions.',
       'Documentation focus includes income proof, health coverage, and compliant remote-work purpose.',
       'Processing pathways differ by embassy/consulate and may vary by nationality.',
@@ -266,7 +294,11 @@ export const sampleArticles: Article[] = [
     articleStatus: 'ongoing',
     publishedAt: '2026-03-20T05:50:00Z',
     updatedAt: '2026-03-21T08:25:00Z',
-    tl_dr: [
+
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1476610182048?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Vulkansk landskap på Island',
+    },    tl_dr: [
       'Iceland: volcanic activity near Reykjanes has created intermittent airspace and ground-operations constraints.',
       'Keflavik-bound and transatlantic connector itineraries face delay and selective cancellation risk.',
       'Ash and gas monitoring updates can change operational status quickly.',
@@ -301,7 +333,11 @@ export const sampleArticles: Article[] = [
     articleStatus: 'ongoing',
     publishedAt: '2026-03-19T13:10:00Z',
     updatedAt: '2026-03-21T08:10:00Z',
-    tl_dr: [
+
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1507525428034?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Solrik middelhavsstrand med bølger',
+    },    tl_dr: [
       'Mediterranean: early-season heatwave conditions are increasing health and infrastructure stress across multiple destinations.',
       'Peak daytime exposure raises dehydration and heat-exhaustion risk, especially for children and older travelers.',
       'Transport and attraction operators may reduce midday service or queue capacity.',
@@ -336,7 +372,11 @@ export const sampleArticles: Article[] = [
     articleStatus: 'active',
     publishedAt: '2026-03-20T15:30:00Z',
     updatedAt: '2026-03-21T08:35:00Z',
-    tl_dr: [
+
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1531366936337?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Nordlys over norsk vinterlandskap',
+    },    tl_dr: [
       'Norway: operators report viable northern-lights viewing windows extending later than typical season assumptions.',
       'Shoulder-period bookings may offer better availability and lower crowd pressure than peak winter dates.',
       'Cloud cover and geomagnetic activity remain the final visibility gatekeepers.',
@@ -375,7 +415,11 @@ export const sampleArticles: Article[] = [
     articleStatus: 'active',
     publishedAt: '2026-03-21T16:30:00.000Z',
     updatedAt: '2026-03-21T18:10:00.000Z',
-    tl_dr: [
+
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1436491865332?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Fly på rullebanen før avgang',
+    },    tl_dr: [
       'London: Heathrow expects longer security lines this weekend.',
       'Passengers are advised to arrive at least 3 hours before departure for international flights.',
       'Airlines may close bag drop earlier if terminal congestion worsens.',
@@ -415,7 +459,11 @@ export const sampleArticles: Article[] = [
     articleStatus: 'ongoing',
     publishedAt: '2026-03-21T10:00:00.000Z',
     updatedAt: '2026-03-21T12:45:00.000Z',
-    tl_dr: [
+
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1492571350019?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Japan bylandskap med Tokyo i fokus',
+    },    tl_dr: [
       'Tokyo: Overnight maintenance may slow automated immigration lanes.',
       'Manual counters will remain open but may have longer processing times.',
       'Travelers should keep printed arrival details available as backup.',
@@ -455,7 +503,11 @@ export const sampleArticles: Article[] = [
     articleStatus: 'active',
     publishedAt: '2026-03-20T09:15:00.000Z',
     updatedAt: '2026-03-21T08:20:00.000Z',
-    tl_dr: [
+
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1508009603885?auto=format&fit=crop&w=1600&q=80',
+      alt: 'Bangkok byliv i varmt vær',
+    },    tl_dr: [
       'Bangkok: Heat advisories are in effect during peak afternoon hours.',
       'Some guided tours are shifting itineraries to cooler periods.',
       'Hydration and sun protection are strongly recommended for outdoor travel.',
