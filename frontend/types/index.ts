@@ -76,6 +76,7 @@ export interface ArticleListItem {
   status: Status
   articleStatus?: ArticleStatus
   locations: { name: string; location_type: string }[]
+  heroImage?: HeroImage
   published_at: string
   updated_at?: string
 }
@@ -110,6 +111,7 @@ export function articleToListItem(article: Article): ArticleListItem {
       : [
           { name: article.location.country, location_type: 'country' }
         ],
+    heroImage: article.heroImage,
     published_at: article.publishedAt,
     updated_at: article.updatedAt,
   }

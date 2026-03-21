@@ -46,7 +46,7 @@ function formatTag(value?: string): string {
 export function ArticleCard({ article, variant = 'default', className, isFeatured = false }: ArticleCardProps) {
   const CategoryIcon = categoryIcons[article.category.slug] || Map
   const locationName = getPrimaryLocationName(article.locations)
-  const heroImage = articleHeroImages[article.slug]
+  const heroImage = article.heroImage
 
   if (variant === 'compact') {
     return (
