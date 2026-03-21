@@ -4,7 +4,6 @@ import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { FeedList } from '@/components/feed/FeedList'
 import { FilterBar } from '@/components/filters/FilterBar'
-import { SubscribeButton } from '@/components/SubscribeButton'
 import { getArticles, getCategories, getLocations } from '@/lib/data'
 import { Plane } from 'lucide-react'
 
@@ -39,10 +38,6 @@ function HomeContent() {
             From flight disruptions to visa changes, we keep you informed.
           </p>
 
-          {/* Subscribe CTA */}
-          <div className="mt-8">
-            <SubscribeButton variant="hero" />
-          </div>
         </div>
       </section>
 
