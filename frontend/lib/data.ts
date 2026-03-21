@@ -356,8 +356,8 @@ export const sampleArticles: Article[] = [
 
 export const articleHeroImages: Record<string, HeroImage> = {
   'london-heathrow-ground-staff-strike-march-15-17': {
-    src: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80',
-    alt: 'Commercial aircraft parked at a busy international airport terminal',
+    src: 'http://89.167.53.202/processed/hero/test-image.jpg',
+    alt: 'Heathrow',
   },
   'japan-eta-visa-free-travelers': {
     src: 'https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&w=1600&q=80',

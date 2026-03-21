@@ -75,6 +75,17 @@ export function ArticleSection({ article, className }: ArticleSectionProps) {
 
   return (
     <div className={cn('space-y-6', className)}>
+      {article.heroImage && (
+        <section className="overflow-hidden rounded-xl border border-border">
+          <img
+            src={article.heroImage.src}
+            alt={article.heroImage.alt}
+            className="h-56 w-full object-cover md:h-80"
+            loading="lazy"
+          />
+        </section>
+      )}
+
       {/* TL;DR - Summary */}
       <section className="bg-primary/5 border border-primary/20 rounded-lg p-5">
         <div className="flex items-center gap-2 mb-3">
