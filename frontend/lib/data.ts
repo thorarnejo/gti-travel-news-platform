@@ -233,6 +233,18 @@ export const articleHeroImages: Record<string, HeroImage> = {
     src: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80',
     alt: 'Dubai skyline with modern high-rise hotels',
   },
+  'thailand-safety-advisory-southern-regions': {
+    src: 'https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?auto=format&fit=crop&w=1600&q=80',
+    alt: 'Traditional long-tail boats on a Thailand beach at sunset',
+  },
+  'paris-olympics-2024-airbnb-regulations': {
+    src: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80',
+    alt: 'Eiffel Tower and Paris cityscape during golden hour',
+  },
+  'tokyo-cherry-blossom-season-tourism-surge': {
+    src: 'https://images.unsplash.com/photo-1526481280695-3c4697d2eaae?auto=format&fit=crop&w=1600&q=80',
+    alt: 'Cherry blossoms framing a Tokyo street with city skyline in background',
+  },
 }
 
 export const articleInlineMedia: Record<string, InlineMedia[]> = {
