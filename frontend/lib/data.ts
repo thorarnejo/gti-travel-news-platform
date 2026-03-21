@@ -27,6 +27,19 @@ export const sampleArticles: Article[] = [
       "\n\n**Q2: Will my flight be affected if there's another power incident?**\nA: While improvements have been made, the review noted that complete immunity from similar events is not possible. Travelers should ensure they have travel insurance covering disruption and verify their airline's specific rebooking and care policies.",
       "\n\n**Q3: How can I stay informed if another major disruption occurs?**\nA: Heathrow recommends signing up for their official flight alerts, following their verified social media channels for real-time updates, and maintaining direct contact with your airline for the most accurate flight-specific information.",
     ],
+    heroImage: {
+      src: 'http://89.167.53.202/processed/hero/heathrow-hero.jpg',
+      alt: 'Heathrow Airport London',
+    },
+    inlineMedia: [
+      {
+        id: 'heathrow-map',
+        type: 'map',
+        src: 'https://www.google.com/maps?q=Heathrow+Airport,London&output=embed',
+        title: 'Heathrow Airport Location',
+        caption: 'Location map for Heathrow Airport, London.',
+      },
+    ],
     whatThisMeans: 'While Heathrow has made significant improvements to its resilience and emergency response capabilities, travelers should still exercise prudent planning when flying through the airport. The published review indicates ongoing work to address remaining vulnerabilities, particularly around communication during major incidents.',
     whatChanged: 'Publication of the Kelly Review findings and confirmation that 15 of 27 recommended safety and operational improvements have been implemented, with the remainder scheduled for completion by Q3 2026.',
     whoIsAffected: 'All passengers traveling through Heathrow Airport, particularly those with connecting flights, travelers requiring special assistance, and passengers on long-haul flights where rebooking options may be more limited.',
