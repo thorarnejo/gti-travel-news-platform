@@ -3,6 +3,43 @@ import type { Article, HeroImage, InlineMedia } from '@/types'
 // GTI standard advisory data (London Heathrow template applied)
 export const sampleArticles: Article[] = [
   {
+    id: '11',
+    slug: 'heathrow-kelly-review-power-outage-march-2026',
+    title: 'Heathrow Kelly Review Published: Power Outage Lessons and Operational Changes',
+    summary: "ACTION REQUIRED: If traveling via Heathrow in the next 30 days, verify your airline's updated contingency plans and allow extra connection time for potential residual disruptions.",
+    category: 'flights',
+    location: { country: 'United Kingdom', city: 'London', countryCode: 'GB' },
+    severity: 'medium',
+    status: 'update',
+    articleStatus: 'active',
+    publishedAt: '2026-03-21T15:00:00Z',
+    updatedAt: '2026-03-21T15:00:00Z',
+    tl_dr: [
+      'London Heathrow: Kelly Review published regarding March 21, 2025 power outage that closed airport for 18 hours, affecting over 290,000 passengers.',
+      'Review identifies critical gaps in emergency planning, communication protocols, and passenger care during major disruptions.',
+      'Heathrow has implemented 15 of 27 recommended improvements, with remaining changes phased through Q3 2026.',
+      'Passengers should verify airline-specific contingency plans as operational changes continue to roll out.',
+    ],
+    body: [
+      "The independent Kelly Review into the circumstances surrounding the major power supply failure that closed Heathrow Airport on 21 March 2025 has been published. The outage, caused by a fire at National Grid and SSEN's North Hyde substation, resulted in the complete closure of Heathrow for approximately 18 hours, affecting over 290,000 passengers and 1,800 flights.",
+      "The review found that while Heathrow's emergency response was adequate for smaller incidents, significant gaps existed in planning for airport-wide power loss scenarios. Key findings included insufficient backup power duration for critical systems, fragmented communication between airport operators and airlines, and inadequate passenger care provisions during extended closures.",
+      "FAQ:\n\n**Q1: What specific changes has Heathrow made since the power outage?**\nA: Heathrow has implemented enhanced backup power systems for critical infrastructure, improved emergency communication protocols with airlines and passenger advocacy groups, and expanded passenger care provisions including better access to food, water, and information during disruptions.",
+      "\n\n**Q2: Will my flight be affected if there's another power incident?**\nA: While improvements have been made, the review noted that complete immunity from similar events is not possible. Travelers should ensure they have travel insurance covering disruption and verify their airline's specific rebooking and care policies.",
+      "\n\n**Q3: How can I stay informed if another major disruption occurs?**\nA: Heathrow recommends signing up for their official flight alerts, following their verified social media channels for real-time updates, and maintaining direct contact with your airline for the most accurate flight-specific information.",
+    ],
+    whatThisMeans: 'While Heathrow has made significant improvements to its resilience and emergency response capabilities, travelers should still exercise prudent planning when flying through the airport. The published review indicates ongoing work to address remaining vulnerabilities, particularly around communication during major incidents.',
+    whatChanged: 'Publication of the Kelly Review findings and confirmation that 15 of 27 recommended safety and operational improvements have been implemented, with the remainder scheduled for completion by Q3 2026.',
+    whoIsAffected: 'All passengers traveling through Heathrow Airport, particularly those with connecting flights, travelers requiring special assistance, and passengers on long-haul flights where rebooking options may be more limited.',
+    whatToDo: "1) Check your airline's website for updated Heathrow-specific contingency plans and disruption policies.\n2) Consider purchasing travel insurance that covers airport closure and extended delays.\n3) Allow additional connection time (minimum 90 minutes for intra-European, 3 hours for intercontinental) when booking flights via Heathrow.\n4) Save Heathrow's official contact information and flight tracking resources before your journey.\n\nACTION REQUIRED: Verify your airline's updated Heathrow contingency plans before your next trip through the airport.",
+    sources: [
+      { name: 'Heathrow Airport - Kelly Review Publication', url: 'https://www.heathrow.com/latest-news', isOfficial: true },
+      { name: 'Department for Transport - Kelly Review Terms of Reference', url: 'https://www.gov.uk/government/publications/kelly-review-terms-of-reference', isOfficial: true },
+      { name: 'Civil Aviation Authority - Airport Resilience Guidelines', url: 'https://www.caa.co.uk/Commercial-industry/Airports/Airport-resilience/', isOfficial: true },
+    ],
+    impactRegions: ['London Heathrow', 'Greater London', 'South East England', 'UK-EU Flight Corridors'],
+    relatedArticles: ['london-heathrow-ground-staff-strike-march-15-17', 'global-passport-ranking-2025-shifting-power', 'santorini-volcanic-uplift-tourism-review'],
+  },
+  {
     id: '1',
     slug: 'london-heathrow-ground-staff-strike-march-15-17',
     title: 'London Heathrow Ground Staff Strike (Mar 15-17): Terminal Handling Disruption and Delays',
@@ -35,7 +72,7 @@ export const sampleArticles: Article[] = [
       { name: 'NATS UK Airspace Updates', url: 'https://www.nats.aero', isOfficial: true },
     ],
     impactRegions: ['London Heathrow', 'Greater London', 'South East England'],
-    relatedArticles: ['japan-eta-visa-free-travelers', 'iceland-volcano-eruption-disrupts-air-travel', 'paris-olympics-aftermath-hotel-occupancy-drop'],
+    relatedArticles: ['heathrow-kelly-review-power-outage-march-2026', 'global-passport-ranking-2025-shifting-power', 'santorini-volcanic-uplift-tourism-review'],
   },
   {
     id: '2',
@@ -140,7 +177,7 @@ export const sampleArticles: Article[] = [
       { name: 'UN Tourism', url: 'https://www.unwto.org', isOfficial: true },
     ],
     impactRegions: ['Europe', 'Asia-Pacific', 'North America', 'Global Transit Hubs'],
-    relatedArticles: ['japan-eta-visa-free-travelers', 'thailand-digital-nomad-visa-2-0', 'dubai-tourism-authority-sustainability-standards'],
+    relatedArticles: ['heathrow-kelly-review-power-outage-march-2026', 'japan-eta-visa-free-travelers', 'thailand-digital-nomad-visa-2-0', 'dubai-tourism-authority-sustainability-standards'],
   },
   {
     id: '5',
@@ -355,6 +392,10 @@ export const sampleArticles: Article[] = [
 ]
 
 export const articleHeroImages: Record<string, HeroImage> = {
+  'heathrow-kelly-review-power-outage-march-2026': {
+    src: 'http://89.167.53.202/processed/hero/test-image.jpg',
+    alt: 'Heathrow Airport',
+  },
   'london-heathrow-ground-staff-strike-march-15-17': {
     src: 'http://89.167.53.202/processed/hero/test-image.jpg',
     alt: 'Heathrow',
