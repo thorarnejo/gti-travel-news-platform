@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import { unstable_noStore } from 'next/cache'
 import Link from 'next/link'
 import {
   ArrowLeft,
@@ -60,6 +61,7 @@ export async function generateMetadata({ params }: ArticlePageProps) {
 }
 
 export default function ArticlePage({ params }: ArticlePageProps) {
+  unstable_noStore() // Disable caching to ensure fresh data
   const article = getArticleBySlug(params.slug)
 
   if (!article) {
