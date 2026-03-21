@@ -416,6 +416,78 @@ export const articleInlineMedia: Record<string, InlineMedia[]> = {
       caption: 'Planning buffer visual for pre-departure document checks.',
     },
   ],
+  'santorini-volcanic-uplift-tourism-review': [
+    {
+      id: 'santorini-map',
+      type: 'map',
+      src: 'https://www.google.com/maps?q=Santorini,Greece&output=embed',
+      title: 'Santorini map',
+      caption: 'Island map for port, airport, and contingency routing context.',
+    },
+  ],
+  'global-passport-ranking-2025-shifting-power': [
+    {
+      id: 'global-passport-chart',
+      type: 'chart',
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+      title: 'Global passport mobility chart',
+      caption: 'Placeholder infographic illustrating mobility ranking shifts.',
+    },
+  ],
+  'dubai-tourism-authority-sustainability-standards': [
+    {
+      id: 'dubai-map',
+      type: 'map',
+      src: 'https://www.google.com/maps?q=Dubai,United+Arab+Emirates&output=embed',
+      title: 'Dubai map',
+      caption: 'City map for hotel district and attraction planning.',
+    },
+  ],
+  'paris-olympics-aftermath-hotel-occupancy-drop': [
+    {
+      id: 'paris-map',
+      type: 'map',
+      src: 'https://www.google.com/maps?q=Paris,France&output=embed',
+      title: 'Paris map',
+      caption: 'District overview for post-event hotel pricing comparisons.',
+    },
+  ],
+  'thailand-digital-nomad-visa-2-0': [
+    {
+      id: 'thailand-map',
+      type: 'map',
+      src: 'https://www.google.com/maps?q=Thailand&output=embed',
+      title: 'Thailand map',
+      caption: 'Country map highlighting common long-stay base locations.',
+    },
+  ],
+  'iceland-volcano-eruption-disrupts-air-travel': [
+    {
+      id: 'iceland-map',
+      type: 'map',
+      src: 'https://www.google.com/maps?q=Iceland&output=embed',
+      title: 'Iceland map',
+      caption: 'Route context for Keflavik and Reykjanes travel planning.',
+    },
+  ],
+  'mediterranean-heatwave-travel-advisory': [
+    {
+      id: 'mediterranean-region-chart',
+      type: 'chart',
+      src: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1200&q=80',
+      title: 'Mediterranean regional heat map',
+      caption: 'Placeholder regional visual for heatwave-affected corridors.',
+    },
+  ],
+  'norway-northern-lights-season-extended': [
+    {
+      id: 'norway-map',
+      type: 'map',
+      src: 'https://www.google.com/maps?q=Norway&output=embed',
+      title: 'Norway map',
+      caption: 'Map context for northern lights routes across Norway.',
+    },
+  ],
 }
 
 export const fullArticleData: Article = sampleArticles[0]

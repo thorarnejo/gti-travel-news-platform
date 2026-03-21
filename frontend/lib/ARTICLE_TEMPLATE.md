@@ -44,7 +44,17 @@ Referanseartikkel: **London Heathrow Ground Staff Strike (Mar 15-17)**.
   ],
 
   impactRegions: ['Region 1', 'Region 2'],
-  relatedArticles: ['slug-a', 'slug-b']
+  relatedArticles: ['slug-a', 'slug-b'],
+
+  inlineMedia: [
+    {
+      id: 'location-map',
+      type: 'map|chart',
+      src: 'https://www.google.com/maps?q=City,Country&output=embed',
+      title: 'Location map or chart title',
+      caption: 'Short description of why this visual helps the reader.'
+    }
+  ]
 }
 ```
 
@@ -98,6 +108,11 @@ Referanseartikkel: **London Heathrow Ground Staff Strike (Mar 15-17)**.
 - Minst 2 offisielle kilder for høy-severity saker.
 - URL må være direkte og gyldig.
 
+### `inlineMedia` (obligatorisk)
+- Alle artikler skal ha minst **ett** `inlineMedia`-element (kart eller chart/infographic).
+- Lokasjonsbaserte saker skal bruke Google Maps embed (`output=embed`) der det er relevant.
+- Ikke-lokasjonssaker kan bruke chart/infographic som placeholder, men feltet kan ikke være tomt.
+
 ---
 
 ## 3) London Heathrow Reference Example (Short)
@@ -120,7 +135,7 @@ Dette er “gold standard” for tone: operasjonell, konkret, handlingsorientert
 2. Fyll alle required fields i denne malen.
 3. Valider guardrails (særlig `tl_dr`, FAQ-format, og `ACTION REQUIRED`).
 4. Legg til hero image i `articleHeroImages` med samme slug.
-5. (Valgfritt) Legg inline media i `articleInlineMedia`.
+5. Legg til `inlineMedia` i `articleInlineMedia` (obligatorisk: kart/chart for alle artikler).
 6. Kjør build/lint før commit.
 7. Commit med melding: `feat(news): add/update <slug> using GTI template`.
 
@@ -128,7 +143,7 @@ Dette er “gold standard” for tone: operasjonell, konkret, handlingsorientert
 
 ## 5) Quick Quality Checklist (Before Merge)
 
-- [ ] 10/10 required fields er fylt
+- [ ] Alle required fields er fylt (inkl. `inlineMedia`)
 - [ ] `tl_dr` <= 4 bullets
 - [ ] `whatToDo` er nummerert + slutter med ACTION REQUIRED
 - [ ] `body` har FAQ med `**Q1:**` + `A:` på ny linje
