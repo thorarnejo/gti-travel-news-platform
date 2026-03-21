@@ -28,8 +28,8 @@ export const sampleArticles: Article[] = [
       "\n\n**Q3: How can I stay informed if another major disruption occurs?**\nA: Heathrow recommends signing up for their official flight alerts, following their verified social media channels for real-time updates, and maintaining direct contact with your airline for the most accurate flight-specific information.",
     ],
     heroImage: {
-      src: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1200&q=80',
-      alt: 'Heathrow Airport London terminal',
+      src: 'https://images.unsplash.com/photo-1698367503940-c093a450ac6d?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600',
+      alt: 'Passenger jet on runway at Heathrow Airport',
     },
     inlineMedia: [
       {
@@ -405,10 +405,6 @@ export const sampleArticles: Article[] = [
 ]
 
 export const articleHeroImages: Record<string, HeroImage> = {
-  'heathrow-kelly-review-power-outage-march-2026': {
-    src: 'http://89.167.53.202/processed/hero/test-image.jpg',
-    alt: 'Heathrow Airport',
-  },
   'london-heathrow-ground-staff-strike-march-15-17': {
     src: 'http://89.167.53.202/processed/hero/test-image.jpg',
     alt: 'Heathrow',
