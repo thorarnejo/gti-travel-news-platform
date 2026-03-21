@@ -219,7 +219,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
 
             {relatedArticles.length > 0 && (
               <section>
-                <h3 className="font-semibold mb-3">Les også</h3>
+                <h3 className="font-semibold mb-3">Related Articles</h3>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-3">
                   {relatedArticles.map((related) => (
                     <Link

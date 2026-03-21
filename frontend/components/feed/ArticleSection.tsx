@@ -106,7 +106,7 @@ export function ArticleSection({ article, className }: ArticleSectionProps) {
             </div>
             <h3 className="font-semibold text-lg">What This Means for Travelers</h3>
           </div>
-          <p className="text-sm leading-relaxed text-muted-foreground">{article.whatThisMeans}</p>
+          <p className="text-sm leading-relaxed text-slate-700">{article.whatThisMeans}</p>
         </section>
       )}
 
