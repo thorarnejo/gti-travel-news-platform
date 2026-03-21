@@ -1,12 +1,13 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-import { Suspense } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { FeedList } from '@/components/feed/FeedList'
 import { FilterBar } from '@/components/filters/FilterBar'
-import { getArticles, getCategories, getLocations } from '@/lib/data'
+import { getCategories, getLocations } from '@/lib/data'
 import { Plane } from 'lucide-react'
 import Link from 'next/link'
+import type { Article } from '@/types'
 
 const categoryLabels: Record<string, string> = {
   flights: 'Flights',
@@ -19,8 +20,10 @@ const categoryLabels: Record<string, string> = {
 
 function CategoryContent({ category }: { category: string }) {
   const searchParams = useSearchParams()
-  const categories = getCategories()
-  const locations = getLocations()
+  const categories = getCategories().map(c => c.slug)
+  const locations = getLocations().map(l => l.name)
+  const [articles, setArticles] = useState<Article[]>([])
+  const [loading, setLoading] = useState(true)
 
   const filters = {
     category,
@@ -29,7 +32,22 @@ function CategoryContent({ category }: { category: string }) {
     sortBy: searchParams.get('sortBy') || 'latest',
   }
 
-  const articles = getArticles(filters)
+  useEffect(() => {
+    fetch('/api/articles')
+      .then(r => r.json())
+      .then(data => {
+        let filtered = data.articles || []
+        if (filters.category) {
+          filtered = filtered.filter((a: Article) => a.category === filters.category)
+        }
+        if (filters.severity) {
+          filtered = filtered.filter((a: Article) => a.severity === filters.severity)
+        }
+        setArticles(filtered)
+        setLoading(false)
+      })
+      .catch(() => setLoading(false))
+  }, [category])
   const label = categoryLabels[category] || category
 
   return (
@@ -66,8 +84,8 @@ function CategoryContent({ category }: { category: string }) {
 }
 
 export default function CategoryPage({ params }: { params: { category: string } }) {
-  const validCategories = getCategories()
-  
+  const validCategories = getCategories().map(c => c.slug)
+
   if (!validCategories.includes(params.category)) {
     return (
       <div className="min-h-screen flex items-center justify-center">
