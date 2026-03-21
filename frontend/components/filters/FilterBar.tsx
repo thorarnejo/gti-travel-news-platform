@@ -24,11 +24,12 @@ export function FilterBar({ className, categories, locations }: FilterBarProps) 
     (key: string, value: string | null) => {
       const params = new URLSearchParams(searchParams.toString())
       if (value) {
-        params.set(key, value)
+        params.set(key, value.toLowerCase())
       } else {
         params.delete(key)
       }
-      router.push(`${pathname}?${params.toString()}`)
+      const query = params.toString()
+      router.push(query ? `${pathname}?${query}` : pathname)
     },
     [router, pathname, searchParams]
   )

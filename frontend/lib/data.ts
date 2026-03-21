@@ -540,7 +540,8 @@ export function getArticles(filters?: ArticleFilters): Article[] {
   if (!filters) return articles
 
   if (filters.category) {
-    articles = articles.filter((article) => article.category === filters.category)
+    const category = filters.category.toLowerCase()
+    articles = articles.filter((article) => article.category.toLowerCase() === category)
   }
 
   if (filters.location) {

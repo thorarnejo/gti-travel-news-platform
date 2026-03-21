@@ -11,9 +11,9 @@ function HomeContent() {
   const searchParams = useSearchParams()
   
   const filters = {
-    category: searchParams.get('category') || undefined,
+    category: (searchParams.get('category') || '').toLowerCase() || undefined,
     location: searchParams.get('location') || undefined,
-    severity: searchParams.get('severity') || undefined,
+    severity: (searchParams.get('severity') || '').toLowerCase() || undefined,
     sortBy: (searchParams.get('sortBy') as 'latest' | 'severity' | null) || 'latest',
   }
 
