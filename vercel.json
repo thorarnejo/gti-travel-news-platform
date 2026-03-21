@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "env": {
-    "DATABASE_URL": "postgresql://neondb_owner:npg_pC1WvKbB2iMP@ep-falling-meadow-ag627iy8-pooler.c-2.eu-central-1.aws.neon.tech:5432/neondb?sslmode=require",
-    "NEXT_PUBLIC_SITE_URL": "https://news-platform-fefkdpcr5-thorarnejo-8868s-projects.vercel.app",
-    "USE_MOCK_DATA": "false"
-  },
-  "build": {
-    "env": {
-      "DATABASE_URL": "postgresql://neondb_owner:npg_pC1WvKbB2iMP@ep-falling-meadow-ag627iy8-pooler.c-2.eu-central-1.aws.neon.tech:5432/neondb?sslmode=require"
-    }
-  }
+  "framework": "nextjs",
+  "installCommand": "cd frontend && npm install",
+  "buildCommand": "cd frontend && npm run build",
+  "devCommand": "cd frontend && npm run dev",
+  "outputDirectory": "frontend/.next"
 }
