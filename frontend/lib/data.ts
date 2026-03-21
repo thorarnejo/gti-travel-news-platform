@@ -358,8 +358,8 @@ export const sampleArticles: Article[] = [
     ],
     impactRegions: ['Tromsø', 'Northern Norway', 'Arctic Circle Norway'],
     relatedArticles: ['mediterranean-heatwave-travel-advisory', 'thailand-digital-nomad-visa-2-0', 'global-passport-ranking-2025-shifting-power'],
-  },,
-{
+  },
+  {
     id: 'a1',
     slug: 'london-heathrow-security-strike-delays',
     title: 'Heathrow warns of longer security queues during weekend staffing action',
@@ -483,7 +483,7 @@ export const sampleArticles: Article[] = [
 
 // Filter + sort articles (sync for client components)
 export function getArticles(filters?: ArticleFilters): Article[] {
-  let articles = [...sampleArticles]
+  let articles = sampleArticles.filter(Boolean)
 
   if (!filters) return articles
 
