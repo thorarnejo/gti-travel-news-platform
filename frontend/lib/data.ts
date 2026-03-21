@@ -23,7 +23,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-20T22:30:00Z',
 
     heroImage: {
-      src: 'https://images.unsplash.com/photo-1436491865332?auto=format&fit=crop&w=1600&q=80',
+      src: 'http://89.167.53.202/processed/hero/1436491865332.jpg',
       alt: 'Passasjerfly på rullebanen ved London Heathrow',
     },    tl_dr: [
       'London Heathrow: ground handling staff action has disrupted baggage loading and turnaround windows, creating rolling delays and selective cancellations.',
@@ -62,7 +62,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T08:30:00Z',
 
     heroImage: {
-      src: 'https://images.unsplash.com/photo-1492571350019?auto=format&fit=crop&w=1600&q=80',
+      src: 'http://89.167.53.202/processed/hero/1492571350019.jpg',
       alt: 'Tokyo skyline ved skumring',
     },    tl_dr: [
       'Japan: ETA pre-clearance for visa-free markets is moving from proposal to implementation guidance.',
@@ -101,7 +101,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T07:40:00Z',
 
     heroImage: {
-      src: 'https://images.unsplash.com/photo-1570077188670?auto=format&fit=crop&w=1600&q=80',
+      src: 'http://89.167.53.202/processed/hero/1570077188670.jpg',
       alt: 'Hvite hus og klipper i Santorini',
     },    tl_dr: [
       'Santorini: geophysical uplift monitoring prompted tourism operations review and contingency planning.',
@@ -140,7 +140,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T07:55:00Z',
 
     heroImage: {
-      src: 'https://images.unsplash.com/photo-1488646953014?auto=format&fit=crop&w=1600&q=80',
+      src: 'http://89.167.53.202/processed/hero/1488646953014.jpg',
       alt: 'Reisepass og boardingkort på et bord',
     },    tl_dr: [
       'Global: 2025 passport mobility rankings show notable gains and declines across key travel markets.',
@@ -179,7 +179,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T08:05:00Z',
 
     heroImage: {
-      src: 'https://images.unsplash.com/photo-1512453979798?auto=format&fit=crop&w=1600&q=80',
+      src: 'http://89.167.53.202/processed/hero/1512453979798.jpg',
       alt: 'Burj Khalifa og Dubai skyline',
     },    tl_dr: [
       'Dubai: tourism operators face updated sustainability criteria and reporting expectations.',
@@ -218,7 +218,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T07:20:00Z',
 
     heroImage: {
-      src: 'https://images.unsplash.com/photo-1502602898657?auto=format&fit=crop&w=1600&q=80',
+      src: 'http://89.167.53.202/processed/hero/1502602898657.jpg',
       alt: 'Eiffeltårnet i Paris',
     },    tl_dr: [
       'Paris: post-Olympic demand normalization has reduced occupancy in several hotel segments.',
@@ -257,7 +257,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T08:15:00Z',
 
     heroImage: {
-      src: 'https://images.unsplash.com/photo-1508009603885?auto=format&fit=crop&w=1600&q=80',
+      src: 'http://89.167.53.202/processed/hero/1508009603885.jpg',
       alt: 'Bangkok skyline med templer',
     },    tl_dr: [
       'Thailand: updated digital nomad visa framework refines eligibility, duration, and renewal conditions.',
@@ -296,7 +296,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T08:25:00Z',
 
     heroImage: {
-      src: 'https://images.unsplash.com/photo-1476610182048?auto=format&fit=crop&w=1600&q=80',
+      src: 'http://89.167.53.202/processed/hero/1476610182048.jpg',
       alt: 'Vulkansk landskap på Island',
     },    tl_dr: [
       'Iceland: volcanic activity near Reykjanes has created intermittent airspace and ground-operations constraints.',
@@ -335,7 +335,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T08:10:00Z',
 
     heroImage: {
-      src: 'https://images.unsplash.com/photo-1507525428034?auto=format&fit=crop&w=1600&q=80',
+      src: 'http://89.167.53.202/processed/hero/1507525428034.jpg',
       alt: 'Solrik middelhavsstrand med bølger',
     },    tl_dr: [
       'Mediterranean: early-season heatwave conditions are increasing health and infrastructure stress across multiple destinations.',
@@ -374,7 +374,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T08:35:00Z',
 
     heroImage: {
-      src: 'https://images.unsplash.com/photo-1531366936337?auto=format&fit=crop&w=1600&q=80',
+      src: 'http://89.167.53.202/processed/hero/1531366936337.jpg',
       alt: 'Nordlys over norsk vinterlandskap',
     },    tl_dr: [
       'Norway: operators report viable northern-lights viewing windows extending later than typical season assumptions.',
@@ -417,7 +417,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T18:10:00.000Z',
 
     heroImage: {
-      src: 'https://images.unsplash.com/photo-1436491865332?auto=format&fit=crop&w=1600&q=80',
+      src: 'http://89.167.53.202/processed/hero/1436491865332.jpg',
       alt: 'Fly på rullebanen før avgang',
     },    tl_dr: [
       'London: Heathrow expects longer security lines this weekend.',
@@ -461,7 +461,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T12:45:00.000Z',
 
     heroImage: {
-      src: 'https://images.unsplash.com/photo-1492571350019?auto=format&fit=crop&w=1600&q=80',
+      src: 'http://89.167.53.202/processed/hero/1492571350019.jpg',
       alt: 'Japan bylandskap med Tokyo i fokus',
     },    tl_dr: [
       'Tokyo: Overnight maintenance may slow automated immigration lanes.',
@@ -505,7 +505,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T08:20:00.000Z',
 
     heroImage: {
-      src: 'https://images.unsplash.com/photo-1508009603885?auto=format&fit=crop&w=1600&q=80',
+      src: 'http://89.167.53.202/processed/hero/1508009603885.jpg',
       alt: 'Bangkok byliv i varmt vær',
     },    tl_dr: [
       'Bangkok: Heat advisories are in effect during peak afternoon hours.',

@@ -6,6 +6,12 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
+      {
+        protocol: 'http',
+        hostname: '89.167.53.202',
+        port: '',
+        pathname: '/processed/**',
+      },
     ],
   },
   experimental: {
