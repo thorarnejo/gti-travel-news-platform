@@ -405,6 +405,10 @@ export const sampleArticles: Article[] = [
 ]
 
 export const articleHeroImages: Record<string, HeroImage> = {
+  'heathrow-kelly-review-power-outage-march-2026': {
+    src: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1200&q=80',
+    alt: 'Heathrow Airport London terminal',
+  },
   'london-heathrow-ground-staff-strike-march-15-17': {
     src: 'http://89.167.53.202/processed/hero/test-image.jpg',
     alt: 'Heathrow',
