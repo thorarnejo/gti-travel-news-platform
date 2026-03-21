@@ -5,8 +5,6 @@ import {
   ArrowLeft,
   MapPin,
   Clock,
-  ExternalLink,
-  CheckCircle,
   Share2,
   Twitter,
   Linkedin,
@@ -184,58 +182,6 @@ export default function ArticlePage({ params }: ArticlePageProps) {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <div className="bg-card border border-border rounded-lg p-5">
-              <h3 className="font-semibold mb-3">Quick Summary</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{article.summary}</p>
-            </div>
-
-            {article.impactRegions && article.impactRegions.length > 0 && (
-              <div className="bg-card border border-border rounded-lg p-5">
-                <h3 className="font-semibold mb-3">Affected Areas</h3>
-                <div className="flex flex-wrap gap-2">
-                  {article.impactRegions.map((region) => (
-                    <Link
-                      key={region}
-                      href={`/location/${region.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-muted text-sm hover:bg-muted/80 transition-colors"
-                    >
-                      <MapPin className="h-3 w-3" />
-                      {region}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <div className="bg-card border border-border rounded-lg p-5">
-              <h3 className="font-semibold mb-3">Sources</h3>
-              <ul className="space-y-3">
-                {article.sources.map((source) => (
-                  <li key={source.url} className="flex flex-col gap-1">
-                    <div className="flex items-center gap-2">
-                      <a
-                        href={source.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800"
-                      >
-                        {source.name}
-                        <ExternalLink className="h-3 w-3" />
-                      </a>
-                      {source.isOfficial && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-medium border border-emerald-200">
-                          <CheckCircle className="h-3 w-3" />
-                          Official
-                        </span>
-                      )}
-                    </div>
-                    {source.lastUpdated && (
-                      <span className="text-xs text-muted-foreground pl-4">Updated: {formatDate(source.lastUpdated)}</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
 
             <div className="bg-muted rounded-lg p-4 text-sm text-muted-foreground">
               <p>
