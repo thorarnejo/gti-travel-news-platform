@@ -11,6 +11,19 @@ export interface Source {
   type?: 'official' | 'news'
 }
 
+export interface HeroImage {
+  src: string
+  alt: string
+}
+
+export interface InlineMedia {
+  id: string
+  type: 'image' | 'map' | 'chart' | 'embed'
+  src: string
+  title?: string
+  caption?: string
+}
+
 export interface Article {
   id: string
   slug: string
@@ -36,6 +49,8 @@ export interface Article {
   sources: Source[]
   impactRegions: string[]
   relatedArticles?: string[]  // Array of article slugs for related articles section
+  heroImage?: HeroImage
+  inlineMedia?: InlineMedia[]
 }
 
 export interface FilterState {

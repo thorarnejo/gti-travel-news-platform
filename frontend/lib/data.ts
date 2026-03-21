@@ -1,4 +1,4 @@
-import type { Article } from '@/types'
+import type { Article, HeroImage, InlineMedia } from '@/types'
 
 // Sample data - rewritten to GTI advisory standard
 export const sampleArticles: Article[] = [
@@ -220,6 +220,42 @@ export const sampleArticles: Article[] = [
   },
 ]
 
+export const articleHeroImages: Record<string, HeroImage> = {
+  'london-heathrow-ground-staff-strike-march-15-17': {
+    src: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80',
+    alt: 'Commercial aircraft parked at a busy international airport terminal',
+  },
+  'japan-visa-entry-requirements-update': {
+    src: 'https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&w=1600&q=80',
+    alt: 'Tokyo skyline with city lights at dusk',
+  },
+  'dubai-hotels-spring-break-price-surge': {
+    src: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80',
+    alt: 'Dubai skyline with modern high-rise hotels',
+  },
+}
+
+export const articleInlineMedia: Record<string, InlineMedia[]> = {
+  'london-heathrow-ground-staff-strike-march-15-17': [
+    {
+      id: 'lhr-terminal-map',
+      type: 'map',
+      src: 'https://www.google.com/maps?q=Heathrow+Airport&output=embed',
+      title: 'Heathrow Airport map',
+      caption: 'Placeholder embed: terminal area map for travel planning context.',
+    },
+  ],
+  'japan-visa-entry-requirements-update': [
+    {
+      id: 'visa-process-chart',
+      type: 'chart',
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+      title: 'eVISA process timeline',
+      caption: 'Placeholder visual for approval timeline and planning buffer.',
+    },
+  ],
+}
+
 // Full article page data - the first article with complete details
 export const fullArticleData: Article = sampleArticles[0]
 
@@ -259,7 +295,14 @@ export function getArticles(filters?: {
 }
 
 export function getArticleBySlug(slug: string): Article | undefined {
-  return sampleArticles.find(a => a.slug === slug)
+  const article = sampleArticles.find(a => a.slug === slug)
+  if (!article) return undefined
+
+  return {
+    ...article,
+    heroImage: article.heroImage || articleHeroImages[slug],
+    inlineMedia: article.inlineMedia || articleInlineMedia[slug] || [],
+  }
 }
 
 export function getCategories(): string[] {

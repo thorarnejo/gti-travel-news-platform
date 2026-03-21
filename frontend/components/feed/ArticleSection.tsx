@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { AlertTriangle, AlertCircle, Info, XCircle, TrendingUp, Shield, CheckCircle, MapPin, FileText } from 'lucide-react'
 import type { Article, Source } from '@/types'
-import { sampleArticles } from '@/lib/data'
 
 interface ArticleSectionProps {
   article: Article
@@ -45,20 +44,23 @@ function SourceItem({ source }: { source: Source }) {
   )
 }
 
-export function ArticleSection({ article, className }: ArticleSectionProps) {
-  const categoryLabel = article.category.charAt(0).toUpperCase() + article.category.slice(1)
-  const locationLabel = article.location.city 
-    ? `${article.location.city}, ${article.location.country}`
-    : article.location.country
+function toRichHtml(input: string) {
+  return input
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/^### (.*)$/gm, '<h4>$1</h4>')
+    .replace(/^## (.*)$/gm, '<h3>$1</h3>')
+    .replace(/^>\s?(.*)$/gm, '<blockquote>$1</blockquote>')
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/\n/g, '<br />')
+}
 
+export function ArticleSection({ article, className }: ArticleSectionProps) {
   // Group sources by type
   const officialSources = article.sources.filter(s => s.type === 'official' || s.isOfficial)
   const newsSources = article.sources.filter(s => s.type === 'news' || (!s.type && !s.isOfficial))
-
-  // Get related articles
-  const relatedArticles = article.relatedArticles 
-    ? sampleArticles.filter(a => article.relatedArticles?.includes(a.slug)).slice(0, 3)
-    : []
 
   return (
     <div className={cn('space-y-6', className)}>
@@ -83,24 +85,6 @@ export function ArticleSection({ article, className }: ArticleSectionProps) {
         </ul>
       </section>
 
-      {/* SEO Body Section - The News Story */}
-      {article.body && article.body.length > 0 && (
-        <section className="border border-border rounded-lg p-5">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="p-1.5 rounded-md bg-slate-100">
-              <FileText className="h-4 w-4 text-slate-700" />
-            </div>
-            <h3 className="font-semibold text-lg">What Happened</h3>
-          </div>
-          <div className="space-y-4">
-            {article.body.map((paragraph, index) => (
-              <p key={index} className="text-sm leading-relaxed text-muted-foreground">
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        </section>
-      )}
 
       {/* What This Means for Travelers */}
       {article.whatThisMeans && (
@@ -148,6 +132,27 @@ export function ArticleSection({ article, className }: ArticleSectionProps) {
         <p className="text-sm leading-relaxed text-muted-foreground whitespace-pre-line">{article.whatToDo}</p>
       </section>
 
+      {/* Body Text */}
+      {article.body && article.body.length > 0 && (
+        <section>
+          <div className="flex items-center gap-2 mb-4">
+            <div className="p-1.5 rounded-md bg-slate-100">
+              <FileText className="h-4 w-4 text-slate-700" />
+            </div>
+            <h3 className="font-semibold text-lg">What Happened</h3>
+          </div>
+          <div className="space-y-5 text-[15px] leading-8 text-foreground/90">
+            {article.body.map((paragraph, index) => (
+              <div
+                key={index}
+                className="[&>blockquote]:border-l-4 [&>blockquote]:border-primary/40 [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-base [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:mb-2 [&>h4]:text-base [&>h4]:font-semibold [&>h4]:mb-2"
+                dangerouslySetInnerHTML={{ __html: toRichHtml(paragraph) }}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Impact Regions */}
       {article.impactRegions && article.impactRegions.length > 0 && (
         <section className="border border-border rounded-lg p-5">
@@ -163,46 +168,6 @@ export function ArticleSection({ article, className }: ArticleSectionProps) {
                 {region}
               </Link>
             ))}
-          </div>
-        </section>
-      )}
-
-      {/* Related Articles */}
-      {relatedArticles.length > 0 && (
-        <section className="border border-border rounded-lg p-5">
-          <h3 className="font-semibold mb-4">Related News</h3>
-          <div className="space-y-3">
-            {relatedArticles.map((relatedArticle) => {
-              const relatedLocationLabel = relatedArticle.location.city 
-                ? `${relatedArticle.location.city}, ${relatedArticle.location.country}`
-                : relatedArticle.location.country
-              return (
-                <Link
-                  key={relatedArticle.id}
-                  href={`/article/${relatedArticle.slug}`}
-                  className="block p-3 rounded-lg bg-slate-50 hover:bg-slate-100 transition-colors group"
-                >
-                  <div className="flex items-start gap-3">
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Link
-                          href={`/category/${relatedArticle.category}`}
-                          onClick={(e) => e.stopPropagation()}
-                          className="text-xs font-medium text-primary hover:underline capitalize"
-                        >
-                          {relatedArticle.category}
-                        </Link>
-                        <span className="text-xs text-muted-foreground">•</span>
-                        <span className="text-xs text-muted-foreground">{relatedLocationLabel}</span>
-                      </div>
-                      <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                        {relatedArticle.title}
-                      </h4>
-                    </div>
-                  </div>
-                </Link>
-              )
-            })}
           </div>
         </section>
       )}
