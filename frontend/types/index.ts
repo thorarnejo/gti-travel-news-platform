@@ -34,6 +34,8 @@ export interface Article {
     country: string
     city?: string
     countryCode: string
+    lat?: number
+    lng?: number
   }
   severity: Severity
   status: Status

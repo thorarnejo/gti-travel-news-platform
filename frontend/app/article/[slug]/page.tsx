@@ -79,6 +79,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   const encodedUrl = encodeURIComponent(`https://gti.news/article/${article.slug}`)
   const encodedTitle = encodeURIComponent(article.title)
+  const hasCoordinates = typeof article.location.lat === 'number' && typeof article.location.lng === 'number'
+  const mapEmbedUrl = hasCoordinates
+    ? `https://www.google.com/maps?q=${article.location.lat},${article.location.lng}&z=10&output=embed`
+    : null
 
   return (
     <div className="min-h-screen">
@@ -169,6 +173,24 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 {article.inlineMedia.map((media) => (
                   <InlineMediaBlock key={media.id} media={media} />
                 ))}
+              </section>
+            )}
+
+            {mapEmbedUrl && (
+              <section className="mt-8 rounded-xl border border-border bg-card p-4 md:p-5">
+                <h3 className="mb-3 text-lg font-semibold">Map</h3>
+                <p className="mb-4 text-sm text-muted-foreground">
+                  Location focus: <span className="font-medium text-foreground">{locationLabel}</span>
+                </p>
+                <div className="overflow-hidden rounded-lg border border-border">
+                  <iframe
+                    src={mapEmbedUrl}
+                    title={`Map for ${locationLabel}`}
+                    loading="lazy"
+                    className="h-[260px] w-full md:h-[360px]"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
               </section>
             )}
 

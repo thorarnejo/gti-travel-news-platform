@@ -10,12 +10,39 @@ interface ArticleFilters {
 // In-memory source used by client pages until API hydration is fully wired.
 export const sampleArticles: Article[] = [
 {
+    id: '11',
+    slug: 'singapore-expands-changi-airport-terminal-5-construction',
+    title: "Singapore Expands Changi Airport Terminal 5 Construction",
+    summary: "Singapore announces accelerated timeline for Changi Airport Terminal 5, expanding capacity for post-pandemic travel recovery.",
+    category: 'destinations',
+    location: { country: "Singapore", city: "Changi", countryCode: 'INT', lat: 1.3644, lng: 103.9915 },
+    severity: 'medium',
+    status: 'update',
+    articleStatus: 'active',
+    publishedAt: '2026-03-22T07:54:04.123855Z',
+    updatedAt: '2026-03-22T07:54:04.123855Z',
+
+    heroImage: {
+      src: 'https://images.unsplash.com/photo-1496939376851-89342e90adcd?auto=format&fit=crop&w=1600&q=80',
+      alt: "Travel destination in Singapore",
+    },
+    tl_dr: ["Singapore: Changi Terminal 5 construction accelerated.", "New terminal adds 50 million passenger capacity annually.", "Expected completion moved to 2030.", "Construction impact on existing terminals minimal."],
+    body: ["Singapore authorities have announced an accelerated construction timeline for Changi Airport Terminal 5, the airport largest expansion project to date. The new terminal will add significant capacity to handle post-pandemic travel growth.", "The expanded timeline reflects confidence in aviation recovery and Singapore strategic position as a regional hub. Terminal 5 will feature advanced automation and sustainable design elements.", "FAQ:\n\n**Q: Will Terminal 5 replace existing terminals?**\nA: No, it complements the existing terminal network.\n\n**Q: When will it open?**\nA: First phase expected 2030, subject to construction progress."],
+    whatThisMeans: "Travelers can expect continued Changi Airport leadership in passenger experience and connectivity. The expansion supports long-term growth in Asia-Pacific travel.",
+    whatChanged: "Singapore Civil Aviation Authority announced accelerated construction timeline with updated completion targets for Terminal 5.",
+    whoIsAffected: "Passengers traveling through Singapore Changi Airport, airlines operating at Changi, and the broader Asia-Pacific aviation market.",
+    whatToDo: "1) No immediate action required for travelers.\n2) Expect continued high service standards during construction.\n3) Monitor for any temporary terminal adjustments.\n\nACTION REQUIRED: None - informational update for future travel planning.",
+    sources: [{"name": "Changi Airport Group", "url": "https://www.changiairport.com", "isOfficial": true}],
+    impactRegions: ["Singapore"],
+    relatedArticles: [],
+  },
+{
     id: '1',
     slug: 'london-heathrow-ground-staff-strike-march-15-17',
     title: 'London Heathrow Ground Staff Strike (Mar 15-17): Terminal Handling Disruption and Delays',
     summary: 'ACTION REQUIRED: If you fly via Heathrow before 17 March 23:59 GMT, confirm check-in desk, bag-drop cutoff, and rebooking options with your airline before leaving for the airport.',
     category: 'flights',
-    location: { country: 'United Kingdom', city: 'London', countryCode: 'GB' },
+    location: { country: 'United Kingdom', city: 'London', countryCode: 'GB', lat: 51.4700, lng: -0.4543 },
     severity: 'high',
     status: 'disruption',
     articleStatus: 'active',
@@ -23,7 +50,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-20T22:30:00Z',
 
     heroImage: {
-      src: 'https://images.globaltravelsinfo.com/processed/hero/1436491865332.jpg',
+      src: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80',
       alt: 'Passasjerfly på rullebanen ved London Heathrow',
     },    tl_dr: [
       'London Heathrow: ground handling staff action has disrupted baggage loading and turnaround windows, creating rolling delays and selective cancellations.',
@@ -54,7 +81,7 @@ export const sampleArticles: Article[] = [
     title: 'Japan to Require ETA for Visa-Free Travelers',
     summary: 'ACTION REQUIRED: If you travel to Japan on or after rollout date, submit ETA details before check-in and verify airline document rules.',
     category: 'visa',
-    location: { country: 'Japan', countryCode: 'JP' },
+    location: { country: 'Japan', countryCode: 'JP', lat: 35.6762, lng: 139.6503 },
     severity: 'high',
     status: 'update',
     articleStatus: 'ongoing',
@@ -62,7 +89,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T08:30:00Z',
 
     heroImage: {
-      src: 'https://images.globaltravelsinfo.com/processed/hero/1492571350019.jpg',
+      src: 'https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&w=1600&q=80',
       alt: 'Tokyo skyline ved skumring',
     },    tl_dr: [
       'Japan: ETA pre-clearance for visa-free markets is moving from proposal to implementation guidance.',
@@ -93,7 +120,7 @@ export const sampleArticles: Article[] = [
     title: 'Santorini Volcanic Uplift Triggers Tourism Review',
     summary: 'ACTION REQUIRED: Reconfirm ferry/flight plans and accommodation flexibility if your Santorini trip falls in the next 2 weeks.',
     category: 'safety',
-    location: { country: 'Greece', city: 'Santorini', countryCode: 'GR' },
+    location: { country: 'Greece', city: 'Santorini', countryCode: 'GR', lat: 36.3932, lng: 25.4615 },
     severity: 'medium',
     status: 'warning',
     articleStatus: 'ongoing',
@@ -101,7 +128,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T07:40:00Z',
 
     heroImage: {
-      src: 'https://images.globaltravelsinfo.com/processed/hero/1570077188670.jpg',
+      src: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1600&q=80',
       alt: 'Hvite hus og klipper i Santorini',
     },    tl_dr: [
       'Santorini: geophysical uplift monitoring prompted tourism operations review and contingency planning.',
@@ -140,7 +167,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T07:55:00Z',
 
     heroImage: {
-      src: 'https://images.globaltravelsinfo.com/processed/hero/1488646953014.jpg',
+      src: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=80',
       alt: 'Reisepass og boardingkort på et bord',
     },    tl_dr: [
       'Global: 2025 passport mobility rankings show notable gains and declines across key travel markets.',
@@ -171,7 +198,7 @@ export const sampleArticles: Article[] = [
     title: 'Dubai Tourism Authority Announces New Sustainability Standards',
     summary: 'TL;DR: Expect stricter sustainability disclosure in hotels and tours; verify included services before paying premium “green” rates.',
     category: 'destinations',
-    location: { country: 'United Arab Emirates', city: 'Dubai', countryCode: 'AE' },
+    location: { country: 'United Arab Emirates', city: 'Dubai', countryCode: 'AE', lat: 25.2048, lng: 55.2708 },
     severity: 'low',
     status: 'update',
     articleStatus: 'active',
@@ -179,7 +206,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T08:05:00Z',
 
     heroImage: {
-      src: 'https://images.globaltravelsinfo.com/processed/hero/1512453979798.jpg',
+      src: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80',
       alt: 'Burj Khalifa og Dubai skyline',
     },    tl_dr: [
       'Dubai: tourism operators face updated sustainability criteria and reporting expectations.',
@@ -210,7 +237,7 @@ export const sampleArticles: Article[] = [
     title: 'Paris Olympics Aftermath: Hotel Occupancy Drop',
     summary: 'TL;DR: Post-event occupancy softening opens better-value booking windows; compare flexible rates before locking prepaid deals.',
     category: 'hotels',
-    location: { country: 'France', city: 'Paris', countryCode: 'FR' },
+    location: { country: 'France', city: 'Paris', countryCode: 'FR', lat: 48.8566, lng: 2.3522 },
     severity: 'low',
     status: 'price-change',
     articleStatus: 'active',
@@ -218,7 +245,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T07:20:00Z',
 
     heroImage: {
-      src: 'https://images.globaltravelsinfo.com/processed/hero/1502602898657.jpg',
+      src: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80',
       alt: 'Eiffeltårnet i Paris',
     },    tl_dr: [
       'Paris: post-Olympic demand normalization has reduced occupancy in several hotel segments.',
@@ -249,7 +276,7 @@ export const sampleArticles: Article[] = [
     title: 'Thailand Introduces Digital Nomad Visa 2.0',
     summary: 'ACTION REQUIRED: Verify income, insurance, and stay-length rules before booking long-stay accommodation in Thailand.',
     category: 'visa',
-    location: { country: 'Thailand', countryCode: 'TH' },
+    location: { country: 'Thailand', countryCode: 'TH', lat: 13.7563, lng: 100.5018 },
     severity: 'medium',
     status: 'update',
     articleStatus: 'ongoing',
@@ -257,7 +284,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T08:15:00Z',
 
     heroImage: {
-      src: 'https://images.globaltravelsinfo.com/processed/hero/1508009603885.jpg',
+      src: 'https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=1600&q=80',
       alt: 'Bangkok skyline med templer',
     },    tl_dr: [
       'Thailand: updated digital nomad visa framework refines eligibility, duration, and renewal conditions.',
@@ -288,7 +315,7 @@ export const sampleArticles: Article[] = [
     title: 'Iceland Volcano Eruption Disrupts Air Travel',
     summary: 'ACTION REQUIRED: If traveling via Keflavik or North Atlantic connections, verify flight and reroute options before airport departure.',
     category: 'flights',
-    location: { country: 'Iceland', city: 'Reykjanes', countryCode: 'IS' },
+    location: { country: 'Iceland', city: 'Reykjanes', countryCode: 'IS', lat: 63.9850, lng: -22.6056 },
     severity: 'high',
     status: 'disruption',
     articleStatus: 'ongoing',
@@ -296,7 +323,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T08:25:00Z',
 
     heroImage: {
-      src: 'https://images.globaltravelsinfo.com/processed/hero/1476610182048.jpg',
+      src: 'https://images.unsplash.com/photo-1476610182048-b716b8518aae?auto=format&fit=crop&w=1600&q=80',
       alt: 'Vulkansk landskap på Island',
     },    tl_dr: [
       'Iceland: volcanic activity near Reykjanes has created intermittent airspace and ground-operations constraints.',
@@ -335,7 +362,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T08:10:00Z',
 
     heroImage: {
-      src: 'https://images.globaltravelsinfo.com/processed/hero/1507525428034.jpg',
+      src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80',
       alt: 'Solrik middelhavsstrand med bølger',
     },    tl_dr: [
       'Mediterranean: early-season heatwave conditions are increasing health and infrastructure stress across multiple destinations.',
@@ -366,7 +393,7 @@ export const sampleArticles: Article[] = [
     title: 'Norway Northern Lights Season Extended',
     summary: 'TL;DR: Extended aurora-viewing viability improves booking flexibility, but weather and cloud windows still determine actual visibility.',
     category: 'destinations',
-    location: { country: 'Norway', city: 'Tromsø', countryCode: 'NO' },
+    location: { country: 'Norway', city: 'Tromsø', countryCode: 'NO', lat: 69.6492, lng: 18.9553 },
     severity: 'low',
     status: 'update',
     articleStatus: 'active',
@@ -374,7 +401,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T08:35:00Z',
 
     heroImage: {
-      src: 'https://images.globaltravelsinfo.com/processed/hero/1531366936337.jpg',
+      src: 'https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=1600&q=80',
       alt: 'Nordlys over norsk vinterlandskap',
     },    tl_dr: [
       'Norway: operators report viable northern-lights viewing windows extending later than typical season assumptions.',
@@ -409,6 +436,8 @@ export const sampleArticles: Article[] = [
       country: 'United Kingdom',
       city: 'London',
       countryCode: 'GB',
+      lat: 51.4700,
+      lng: -0.4543,
     },
     severity: 'high',
     status: 'disruption',
@@ -417,7 +446,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T18:10:00.000Z',
 
     heroImage: {
-      src: 'https://images.globaltravelsinfo.com/processed/hero/1436491865332.jpg',
+      src: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80',
       alt: 'Fly på rullebanen før avgang',
     },    tl_dr: [
       'London: Heathrow expects longer security lines this weekend.',
@@ -453,6 +482,8 @@ export const sampleArticles: Article[] = [
       country: 'Japan',
       city: 'Tokyo',
       countryCode: 'JP',
+      lat: 35.6762,
+      lng: 139.6503,
     },
     severity: 'medium',
     status: 'update',
@@ -461,7 +492,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T12:45:00.000Z',
 
     heroImage: {
-      src: 'https://images.globaltravelsinfo.com/processed/hero/1492571350019.jpg',
+      src: 'https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&w=1600&q=80',
       alt: 'Japan bylandskap med Tokyo i fokus',
     },    tl_dr: [
       'Tokyo: Overnight maintenance may slow automated immigration lanes.',
@@ -497,6 +528,8 @@ export const sampleArticles: Article[] = [
       country: 'Thailand',
       city: 'Bangkok',
       countryCode: 'TH',
+      lat: 13.7563,
+      lng: 100.5018,
     },
     severity: 'low',
     status: 'warning',
@@ -505,7 +538,7 @@ export const sampleArticles: Article[] = [
     updatedAt: '2026-03-21T08:20:00.000Z',
 
     heroImage: {
-      src: 'https://images.globaltravelsinfo.com/processed/hero/1508009603885.jpg',
+      src: 'https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=1600&q=80',
       alt: 'Bangkok byliv i varmt vær',
     },    tl_dr: [
       'Bangkok: Heat advisories are in effect during peak afternoon hours.',
